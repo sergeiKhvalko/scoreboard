@@ -1,0 +1,11 @@
+.themeSelector {
+  border-radius: 50%;
+  color: var(--grey-darken-2);
+  padding: 10px;
+  font-size: 24px;
+
+  &:hover {
+    color: var(--grey-darken-2);
+    background-color: var(--bg-color);
+  }
+}

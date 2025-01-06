@@ -1,0 +1,51 @@
+.navbar {
+  height: 64px;
+  display: flex;
+  background: var(--card-bg);
+  position: fixed;
+  padding: 0 15px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+  z-index: 1001;
+
+}
+
+.logo {
+  font-size: 20px;
+  margin-right: auto;
+
+  @media screen and (min-width: 576) {
+    font-size: 24px;
+  }
+}
+
+.red24 {
+  color: #d72638;
+  font-weight: bold;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.navLinks {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-size: 20px;
+}
+
+.divider {
+  width: 2px;
+  height: 70%;
+  margin: 0 20px;
+  background-color: var(--text-color);
+  opacity: var(--v-border-opacity);
+}

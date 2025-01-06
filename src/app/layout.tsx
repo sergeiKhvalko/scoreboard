@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
+import { Navbar } from "@/widgets/Sidebar/Navbar";
+import cn from "classnames";
+import { BottomNav } from "@/shared/ui/BottomNav/BottomNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +30,66 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body
+        className={cn(
+          `${geistSans.variable} ${geistMono.variable}`,
+          "app_dark_theme",
+        )}
+      >
+        <div
+          id="app"
+          className={cn("app")}
+        >
+          <Navbar pages={pages} />
+          {children}
+
+          <BottomNav pages={pages} />
+        </div>
       </body>
     </html>
   );
 }
+
+const pages = [
+  {
+    title: "Stats",
+    icon: "mdi-chart-bar",
+    to: "/stats?season=2024",
+    stats: ["Corners", "Yellow cards", "BTTS", "Total over 2.5"],
+  },
+  {
+    title: "Leagues",
+    icon: "mdi-soccer",
+    to: "/leagues?season=2024",
+    countries: [
+      "Russia",
+      "England",
+      "Germany",
+      "Italy",
+      "Spain",
+      "France",
+      "Portugal",
+      "Netherlands",
+      "Switzerland",
+    ],
+    leagues: [
+      {
+        name: "RPL",
+        link: "/leagues/rfpl?season=2024&league=235",
+      },
+      {
+        name: "FNL",
+        link: "/leagues/russia?season=2024&league=236",
+      },
+      {
+        name: "Premier League",
+        link: "/leagues/premier-league?season=2024&league=39",
+      },
+    ],
+  },
+  {
+    title: "Matches",
+    icon: "mdi-soccer-field",
+    to: "/",
+  },
+];
