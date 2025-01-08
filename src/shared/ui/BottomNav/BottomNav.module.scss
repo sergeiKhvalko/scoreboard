@@ -11,7 +11,13 @@
 }
 
 .link {
+  padding: 15px 25px;
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.activeLink {
+  color: #34F188;
+  background-color: rgba(52, 241, 136, 0.05);
 }

@@ -6,6 +6,7 @@ import { LangSelector } from "@/features/langSelector/LangSelector";
 import { memo } from "react";
 import { ThemeSelector } from "@/features/themeSelector/ThemeSelector";
 import { UserProfile } from "@/features/userProfile/UserProfile";
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 
 export interface NavProps {
   title: string;
@@ -34,14 +35,72 @@ const Navbar = memo(({ pages }: any) => {
         className={styles.navLinks}
       >
         {pages.map((page: NavProps) => (
-          <Link
-            key={page.title}
-            href={page.to}
-            className={styles.navLink}
-          >
-            <span className={cn("mdi", `${page.icon}`, styles.icon)}></span>
-            {page.title}
-          </Link>
+          <Menu key={page.title}>
+            <MenuButton className={styles.navBtn}>
+              <span className={cn("mdi", `${page.icon}`, styles.icon)}></span>
+              {page.title}
+            </MenuButton>
+
+            <MenuItems
+              anchor={{ to: "bottom" }}
+              className={cn(styles.menuItems, {
+                [styles.itemLeague]: page.title === "Leagues",
+              })}
+            >
+              {page.title === "Stats" ? (
+                page.stats?.map((stat) => (
+                  <MenuItem key={stat}>
+                    <Link
+                      className={styles.link}
+                      href={page.to}
+                    >
+                      {stat}
+                    </Link>
+                  </MenuItem>
+                ))
+              ) : page.title === "Leagues" ? (
+                <div className={styles.leagues}>
+                  <div className={styles.countries}>
+                    {page.countries?.map((country) => (
+                      <MenuItem key={country}>
+                        <Link
+                          className={styles.link}
+                          href={page.to}
+                        >
+                          {country}
+                        </Link>
+                      </MenuItem>
+                    ))}
+                  </div>
+                  <div>
+                    {page.leagues?.map((league) => (
+                      <MenuItem key={league.name}>
+                        <Link
+                          className={styles.link}
+                          href={league.link}
+                        >
+                          {league.name}
+                        </Link>
+                      </MenuItem>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  {page.leagues?.map((league) => (
+                    <MenuItem key={league.name}>
+                      <Link
+                        className={styles.link}
+                        href={league.link}
+                      >
+                        {league.name}
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </div>
+              )}
+            </MenuItems>
+          </Menu>
         ))}
       </HStack>
 

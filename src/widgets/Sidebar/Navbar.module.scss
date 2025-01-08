@@ -24,6 +24,7 @@
 .red24 {
   color: #d72638;
   font-weight: bold;
+  font-size: 32px;
 }
 
 .icon {
@@ -35,17 +36,72 @@
 
   @media screen and (min-width: 768px) {
     display: flex;
+    gap: 0;
   }
 }
 
-.navLink {
+.navLink {}
+
+.navBtn {
+  color: var(--text-color);
   font-size: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+
+  &:hover {
+    background-color: rgba(249, 249, 249, 0.1)
+  }
+
+  &[data-active] {
+    background-color: rgba(249, 249, 249, 0.05)
+  }
+}
+
+.navBtnActive {
+  background-color: var(--border-color);
+}
+
+.menuItems {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 5 5px;
+}
+
+.itemLeague {
+  width: 99%;
+  left: 0 !important;
+  right: 0;
+  margin: 0 auto;
+}
+
+.link {
+  display: block;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+.link[data-focus] {
+  background: var(--hover-bg-color);
+}
+
+.leagues {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.countries {
+  padding: 0 40px;
+  margin-right: 40px;
+  border-right: 1px solid var(--border-color);
 }
 
 .divider {
   width: 2px;
   height: 70%;
-  margin: 0 20px;
+  margin: 0 10px 0 0;
   background-color: var(--text-color);
   opacity: var(--v-border-opacity);
 }
