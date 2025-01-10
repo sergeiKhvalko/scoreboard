@@ -40,8 +40,6 @@
   }
 }
 
-.navLink {}
-
 .navBtn {
   color: var(--text-color);
   font-size: 20px;
@@ -51,11 +49,11 @@
   padding: 20px;
 
   &:hover {
-    background-color: rgba(249, 249, 249, 0.1)
+    background-color: var(--button-hover);
   }
 
   &[data-active] {
-    background-color: rgba(249, 249, 249, 0.05)
+    background-color: rgba(249, 249, 249, 0.05);
   }
 }
 
@@ -67,6 +65,7 @@
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 5 5px;
+  background-color: var(--bg-color);
 }
 
 .itemLeague {

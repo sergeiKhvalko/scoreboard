@@ -6,7 +6,13 @@
   --foreground: #171717;
 
   --v-border-opacity: 0.12;
+  --disabled-opacity: 0.5;
+  --border-radius: 8px;
+
   --grey-darken-2: #616161;
+  --text-grey-darken-1: #757575;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,8 +48,47 @@ a {
   text-decoration: none;
 }
 
+ul,
+li {
+  list-style-type: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+}
+
+.main {
+  padding-top: 65px;
+}
+
+.container {
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media screen and (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    max-width: 1320px;
+  }
+
+  @media screen and (min-width: 1500px) {
+    max-width: 1400px;
+  }
+}
+
+.bold {
+  font-weight: bold;
 }

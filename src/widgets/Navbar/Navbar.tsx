@@ -17,12 +17,9 @@ export interface NavProps {
   leagues?: Array<Record<string, string>>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Navbar = memo(({ pages }: any) => {
-  console.log(pages);
-
+const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
   return (
-    <div className={styles.navbar}>
+    <header className={styles.navbar}>
       <Link
         href="/"
         className={styles.logo}
@@ -114,7 +111,7 @@ const Navbar = memo(({ pages }: any) => {
         variant="menu"
       /> */}
       <UserProfile />
-    </div>
+    </header>
   );
 });
 

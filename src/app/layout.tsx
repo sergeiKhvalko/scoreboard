@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
-import { Navbar } from "@/widgets/Sidebar/Navbar";
+import { Navbar } from "@/widgets/Navbar";
 import cn from "classnames";
 import { BottomNav } from "@/shared/ui/BottomNav/BottomNav";
 
@@ -41,7 +41,9 @@ export default function RootLayout({
           className={cn("app")}
         >
           <Navbar pages={pages} />
-          {children}
+          <main className="main">
+            <div className="container">{children}</div>
+          </main>
 
           <BottomNav pages={pages} />
         </div>

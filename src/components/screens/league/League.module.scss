@@ -1,0 +1,38 @@
+.leagueTitle {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  margin: 0 15px;
+}
+
+.descr {
+  display: none;
+
+  @media screen and (min-width: 600px) {
+    display: block;
+    margin-top: 4px;
+    font-size: 20px;
+    color: var(--text-grey-darken-1);
+  }
+
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px 0;
+  gap: 30px;
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: 390px 1fr;
+  }
+}
+
+.fixtures {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}

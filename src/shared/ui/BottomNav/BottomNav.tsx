@@ -5,7 +5,7 @@ import { HStack } from "../Stack";
 import Link from "next/link";
 import styles from "./BottomNav.module.scss";
 import cn from "classnames";
-import { NavProps } from "@/widgets/Sidebar/Navbar";
+import { NavProps } from "@/widgets/Navbar/Navbar";
 import { usePathname } from "next/navigation";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

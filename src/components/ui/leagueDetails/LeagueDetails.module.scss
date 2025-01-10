@@ -1,0 +1,70 @@
+.league {}
+
+.leagueInfo {
+  display: flex;
+  gap: 10px;
+  max-width: 345px;
+
+  img {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+
+    @media screen and (min-width: 1200px) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+.leagueDetails {
+  display: flex;
+  gap: 6px;
+  padding: 5px 0;
+
+  .headlines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media screen and (min-width: 1200px) {
+      gap: 16px;
+    }
+  }
+}
+
+.progress {
+  margin-bottom: 8px;
+  padding: 3px;
+  border: 3px solid var(--border-color);
+}
+
+.progressLine {
+  height: 15px;
+  background-color: yellow;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+
+  a {
+    padding: 20px 0;
+    width: 33.3%;
+    text-align: center;
+
+    &:hover {
+      background-color: var(--button-hover);
+    }
+  }
+
+  .active {
+    background-color: rgba(249, 249, 249, 0.05);
+  }
+
+  :not(:last-child) {
+    border-right: 1px solid var(--border-color);
+  }
+}
