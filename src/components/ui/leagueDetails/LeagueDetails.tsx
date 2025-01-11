@@ -11,7 +11,6 @@ export const LeagueDetails = ({ league }: { league: League }) => {
   const pathname = usePathname().split("/");
   const leagueName = league.name.toLocaleLowerCase().replace(" ", "-");
   const currenTab = pathname[pathname.length - 1];
-  console.log(currenTab);
 
   function getCompletedProgress() {
     return Math.round(

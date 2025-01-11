@@ -36,3 +36,12 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
 }
+
+.tableTitle {
+  margin-top: 10px;
+  padding: 20px 10px;
+  font-size: 20px;
+  color: var(--text-grey-darken-1);
+  background-color: rgba(249, 249, 249, 0.05);
+  border-radius: var(--border-radius);
+}
