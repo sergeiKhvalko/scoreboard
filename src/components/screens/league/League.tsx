@@ -4,7 +4,7 @@ import Image from "next/image";
 import { League } from "@/types/type";
 
 import { LeagueDetails } from "@/components/ui/leagueDetails";
-import { Table } from "@/shared/ui/Table";
+import { StandingTable } from "@/shared/ui/StandingTable";
 
 interface LeagueProps {
   league: League;
@@ -55,12 +55,11 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         {+season.slice(-2) + 1}
       </div>
 
-      <Table
+      <StandingTable
         league={league}
-        matches="summary"
+        matchType="summary"
         variant="overview"
         time="match"
-        className="mt-20"
       />
     </div>
   );

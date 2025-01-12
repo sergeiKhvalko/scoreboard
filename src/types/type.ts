@@ -130,14 +130,14 @@ export interface Stat {
 }
 
 export interface Games {
-  played: number;
-  win: number;
-  draw: number;
-  lose: number;
-  goals_for: number;
-  goals_against: number;
-  goals_diff: number;
-  points: number;
+  M: number;
+  W: number;
+  D: number;
+  L: number;
+  GF: number;
+  GA: number;
+  GD: number;
+  P: number;
 }
 
 // Fixtures
