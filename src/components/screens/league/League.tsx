@@ -5,11 +5,17 @@ import { League } from "@/types/type";
 
 import { LeagueDetails } from "@/components/ui/leagueDetails";
 import { StandingTable } from "@/shared/ui/StandingTable";
+import { Tabs } from "@/shared/ui/Tabs/Tabs";
+import { ReactNode, useMemo } from "react";
 
 interface LeagueProps {
   league: League;
   leagueId: string;
   season: string;
+}
+export interface TableMatchesProps {
+  title: string;
+  content: ReactNode;
 }
 export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
   const breadcrumbs = [
@@ -29,6 +35,45 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
       href: `/${league.name}?season=${season}&league=${leagueId}`,
     },
   ];
+
+  const TablesAllMatches: TableMatchesProps[] = useMemo(
+    () => [
+      {
+        title: "All match",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="summary"
+            variant="overview"
+            time="match"
+          />
+        ),
+      },
+      {
+        title: "1st Half",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="summary"
+            variant="overview"
+            time="first_half"
+          />
+        ),
+      },
+      {
+        title: "2nd Half",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="summary"
+            variant="overview"
+            time="second_half"
+          />
+        ),
+      },
+    ],
+    [league],
+  );
 
   return (
     <div>
@@ -55,11 +100,9 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         {+season.slice(-2) + 1}
       </div>
 
-      <StandingTable
-        league={league}
-        matchType="summary"
-        variant="overview"
-        time="match"
+      <Tabs
+        items={TablesAllMatches}
+        className={styles.tabs}
       />
     </div>
   );

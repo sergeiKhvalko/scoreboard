@@ -45,3 +45,12 @@
   background-color: rgba(249, 249, 249, 0.05);
   border-radius: var(--border-radius);
 }
+
+.tabs {
+  margin-top: 20px;
+  overflow-x: auto;
+
+  @media screen and (min-width: 600px) {
+    overflow-x: inherit;
+  }
+}

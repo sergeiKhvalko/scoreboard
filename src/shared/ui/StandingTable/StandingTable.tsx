@@ -1,5 +1,7 @@
-import { League, Matches } from "@/types/type";
-import { memo } from "react";
+"use client";
+
+import { Games, League, Matches } from "@/types/type";
+import { memo, useCallback } from "react";
 import { Table } from "../Table";
 
 export type MatchTypeProps = "summary" | "home" | "away";
@@ -13,11 +15,11 @@ interface TableProps {
   className?: string;
 }
 
-type MatchType = {
+type MatchTypes = {
   [key in keyof Matches]: Matches[key];
 };
 
-export interface TeamProps extends Partial<MatchType> {
+export interface TeamProps extends Partial<MatchTypes> {
   id: number;
   name: string;
   form: {
@@ -44,6 +46,29 @@ const StandingTable = memo(
       actualStanding.push(team);
     }
 
+    const sortTable = useCallback(
+      (
+        item: string,
+        standings: TeamProps[],
+        setActiveBtn?: (str: string) => void,
+      ) => {
+        console.log("sort");
+
+        standings.sort((a: TeamProps, b: TeamProps) => {
+          return b[matchType] && a[matchType]
+            ? b[matchType][time][item as keyof Games] -
+                a[matchType][time][item as keyof Games]
+            : 0;
+        });
+        if (setActiveBtn) {
+          setActiveBtn(item);
+        }
+      },
+      [matchType, time],
+    );
+
+    sortTable("P", actualStanding);
+
     const tableHeaders = {
       overview: {
         match: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
@@ -67,10 +92,13 @@ const StandingTable = memo(
       },
     };
 
-    const getCellWidth = (arr: Array<string>) => {
-      const freeSpace = variant === "overview" ? 100 - 30 - 17 : 100 - 30;
-      return `${freeSpace / arr.length}%`;
-    };
+    const getCellWidth = useCallback(
+      (arr: Array<string>) => {
+        const freeSpace = variant === "overview" ? 100 - 30 - 17 : 100 - 30;
+        return `${freeSpace / arr.length}%`;
+      },
+      [variant],
+    );
 
     return (
       <Table
@@ -80,7 +108,8 @@ const StandingTable = memo(
         matchType={matchType}
         variant={variant}
         time={time}
-        className="mt-20"
+        sortTable={sortTable}
+        // className="mt-20"
       />
     );
   },

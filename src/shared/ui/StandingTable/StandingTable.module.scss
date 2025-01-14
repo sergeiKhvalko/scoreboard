@@ -1,103 +1,104 @@
-.table {
-  width: 100%;
-  padding: 10px 0 0 0;
-  border-spacing: 0;
+// .table {
+//   width: 100%;
+//   padding: 10px 0 0 0;
+//   border-spacing: 0;
+//   min-width: 500px;
 
-  @media screen and (min-width:992px) {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-  }
+//   @media screen and (min-width:992px) {
+//     border: 1px solid var(--border-color);
+//     border-radius: var(--border-radius);
+//   }
 
-  .teamName {
-    &:hover {
-      color: var(--accent-color)
-    }
-  }
+//   .teamName {
+//     &:hover {
+//       color: var(--accent-color)
+//     }
+//   }
 
-  .activeBtn {
-    padding: 6px 16px;
-    border: 1px solid var(--accent-color);
-    border-radius: 34px;
-    color: var(--accent-color);
-  }
+//   .activeBtn {
+//     padding: 6px 16px;
+//     border: 1px solid var(--accent-color);
+//     border-radius: 34px;
+//     color: var(--accent-color);
+//   }
 
-  tr {
-    border: none;
+//   tr {
+//     border: none;
 
-    :nth-child(1) {
-      width: 6%;
-      text-align: center;
-    }
+//     :nth-child(1) {
+//       width: 6%;
+//       text-align: center;
+//     }
 
-    :nth-child(2) {
-      width: 24%;
-      text-align: start;
-    }
+//     :nth-child(2) {
+//       width: 24%;
+//       text-align: start;
+//     }
 
-    th {
-      button {
-        display: block;
-        width: 100% !important;
-      }
-    }
+//     th {
+//       button {
+//         display: block;
+//         width: 100% !important;
+//       }
+//     }
 
-    th,
-    td {
-      text-align: center;
-      padding: 10px 0;
-      border: none;
-    }
+//     th,
+//     td {
+//       text-align: center;
+//       padding: 10px 0;
+//       border: none;
+//     }
 
-    &:nth-child(2n) {
-      background-color: rgba(249, 249, 249, 0.05);
-    }
+//     &:nth-child(2n) {
+//       background-color: rgba(249, 249, 249, 0.05);
+//     }
 
-    &:hover {
-      background-color: var(--button-hover);
-    }
-  }
+//     &:hover {
+//       background-color: var(--button-hover);
+//     }
+//   }
 
 
-}
+// }
 
-.form {
-  width: 100% !important;
-  display: flex;
-  justify-content: center;
-}
+// .form {
+//   width: 100% !important;
+//   display: flex;
+//   justify-content: center;
+// }
 
-.formItem {
-  flex: 1 0 20px;
-  padding: 3px;
-  border-radius: var(--border-radius);
-  margin: 0 1px;
-  font-size: 14px;
-  font-weight: bold;
+// .formItem {
+//   flex: 1 0 20px;
+//   padding: 3px;
+//   border-radius: var(--border-radius);
+//   margin: 0 1px;
+//   font-size: 14px;
+//   font-weight: bold;
 
-  @media screen and (min-width: 600px) {
-    flex: 0 0 25px;
-    padding: 5px;
-    font-size: inherit;
-  }
-}
+//   @media screen and (min-width: 600px) {
+//     flex: 0 0 25px;
+//     padding: 5px;
+//     font-size: inherit;
+//   }
+// }
 
-.goalsFor {
-  color: #6af92d;
-}
+// .goalsFor {
+//   color: #6af92d;
+// }
 
-.goalsAgainst {
-  color: #ff2929;
-}
+// .goalsAgainst {
+//   color: #ff2929;
+// }
 
-.win {
-  background-color: #759667;
-}
+// .win {
+//   background-color: #759667;
+// }
 
-.draw {
-  background-color: #cd8c27;
-  ;
-}
+// .draw {
+//   background-color: #cd8c27;
+//   ;
+// }
 
-.lose {
-  background-color: #a12c2c;
-}
+// .lose {
+//   background-color: #a12c2c;
+// }

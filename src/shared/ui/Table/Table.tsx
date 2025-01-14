@@ -12,7 +12,6 @@ import {
   TableVariantsProps,
   TeamProps,
 } from "../StandingTable/StandingTable";
-import { Games } from "@/types/type";
 
 interface TableProps {
   headers: Array<string>;
@@ -21,22 +20,26 @@ interface TableProps {
   matchType: MatchTypeProps;
   variant: TableVariantsProps;
   time: MatchTimeProps;
+  sortTable: (
+    item: string,
+    standings: TeamProps[],
+    fn: (str: string) => void,
+  ) => void;
   className?: string;
 }
 const Table = memo((props: TableProps) => {
-  const { headers, standings, cellWidth, matchType, variant, time, className } =
-    props;
-  const [activeBtn, setActiveBtn] = useState("P");
+  const {
+    headers,
+    standings,
+    cellWidth,
+    matchType,
+    variant,
+    time,
+    sortTable,
+    className,
+  } = props;
 
-  const sortTable = (item: string) => {
-    standings.sort((a, b) => {
-      return b[matchType] && a[matchType]
-        ? b[matchType][time][item as keyof Games] -
-            a[matchType][time][item as keyof Games]
-        : 0;
-    });
-    setActiveBtn(item);
-  };
+  const [activeBtn, setActiveBtn] = useState("P");
 
   return (
     <table className={cn(styles.table, className)}>
@@ -52,7 +55,7 @@ const Table = memo((props: TableProps) => {
               <Button
                 variant="ghost"
                 className={cn({ [styles.activeBtn]: activeBtn === item })}
-                onClick={() => sortTable(item)}
+                onClick={() => sortTable(item, standings, setActiveBtn)}
               >
                 {item}
               </Button>

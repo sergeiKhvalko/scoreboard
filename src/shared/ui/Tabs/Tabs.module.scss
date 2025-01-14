@@ -1,0 +1,29 @@
+.tabList {
+  min-width: 450px;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.tab {
+  padding: 20px 0;
+  width: 33.3%;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+  &[data-selected] {
+    background-color: rgba(249, 249, 249, 0.05);
+  }
+}
+
+.tabPanels {
+  min-width: 450px;
+}
