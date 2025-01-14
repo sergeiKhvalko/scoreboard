@@ -7,6 +7,7 @@ import { LeagueDetails } from "@/components/ui/leagueDetails";
 import { StandingTable } from "@/shared/ui/StandingTable";
 import { Tabs } from "@/shared/ui/Tabs/Tabs";
 import { ReactNode, useMemo } from "react";
+import cn from "classnames";
 
 interface LeagueProps {
   league: League;
@@ -18,23 +19,26 @@ export interface TableMatchesProps {
   content: ReactNode;
 }
 export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
-  const breadcrumbs = [
-    {
-      title: "Scoreboard",
-      disabled: false,
-      href: "/",
-    },
-    {
-      title: "Leagues",
-      disabled: false,
-      href: "/leagues?season=2024",
-    },
-    {
-      title: league.name,
-      disabled: true,
-      href: `/${league.name}?season=${season}&league=${leagueId}`,
-    },
-  ];
+  const breadcrumbs = useMemo(
+    () => [
+      {
+        title: "Scoreboard",
+        disabled: false,
+        href: "/",
+      },
+      {
+        title: "Leagues",
+        disabled: false,
+        href: "/leagues?season=2024",
+      },
+      {
+        title: league.name,
+        disabled: true,
+        href: `/${league.name}?season=${season}&league=${leagueId}`,
+      },
+    ],
+    [league, season, leagueId],
+  );
 
   const TablesAllMatches: TableMatchesProps[] = useMemo(
     () => [
@@ -75,6 +79,10 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
     [league],
   );
 
+  const firstTeam = league.standings[0].name;
+  const secondTeam = league.standings[1].name;
+  const lastTeam = league.standings[league.standings.length - 1].name;
+
   return (
     <div>
       <Breadcrumbs items={breadcrumbs} />
@@ -104,6 +112,49 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         items={TablesAllMatches}
         className={styles.tabs}
       />
+
+      <div className={styles.tableResults}>
+        <div>
+          <ul>
+            <li className={cn(styles.zone, styles.zone1)}>
+              <div className={styles.zoneBg}></div>
+              <div className={styles.zoneName}>UEFA Champions League</div>
+            </li>
+            <li className={cn(styles.zone, styles.zone2)}>
+              <div className={styles.zoneBg}></div>
+              <div className={styles.zoneName}>UEFA Europa League</div>
+            </li>
+            <li className={cn(styles.zone, styles.zone3)}>
+              <div className={styles.zoneBg}></div>
+              <div className={styles.zoneName}>Relegation</div>
+            </li>
+          </ul>
+        </div>
+        <div className={styles.analysis}>
+          <h3>{league.name} Table Analysis</h3>
+          <ul>
+            <li>
+              {`Difference between ${firstTeam} FC at 1st and ${secondTeam} FC at
+              2nd is ${
+                league.standings[0].matches.summary.match.P -
+                league.standings[1].matches.summary.match.P
+              } points.`}
+            </li>
+            <li>
+              {`The bottom team (${lastTeam} FC) need 10 more points to escape
+              automatic relegation.`}
+            </li>
+            <li>
+              {`The point gap between ${firstTeam} FC at the top and ${lastTeam}
+              FC at the bottom is ${
+                league.standings[0].matches.summary.match.P -
+                league.standings[league.standings.length - 1].matches.summary
+                  .match.P
+              } points.`}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };

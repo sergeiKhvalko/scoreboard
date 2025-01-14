@@ -3,6 +3,7 @@
 import { Games, League, Matches } from "@/types/type";
 import { memo, useCallback } from "react";
 import { Table } from "../Table";
+import { commandZones } from "@/shared/consts/commandZones";
 
 export type MatchTypeProps = "summary" | "home" | "away";
 export type TableVariantsProps = "overview" | "corners" | "cards" | "totals";
@@ -26,11 +27,17 @@ export interface TeamProps extends Partial<MatchTypes> {
     info: Array<string>;
     result: string;
   };
+  zone: string;
 }
 const StandingTable = memo(
   ({ league, matchType, variant, time }: TableProps) => {
     const actualStanding: Array<TeamProps> = [];
-    for (const item of league.standings) {
+
+    console.log(league);
+
+    league.standings.forEach((item, i) => {
+      console.log(league.name);
+
       const team: TeamProps = {
         id: item.id,
         name: item.name,
@@ -38,13 +45,14 @@ const StandingTable = memo(
           info: [...item.form.info],
           result: item.form.result,
         },
+        zone: league.name ? commandZones[league.name][i + 1] : "",
         [matchType]: {
           [time]: { ...item.matches[matchType][time] },
         },
       };
 
       actualStanding.push(team);
-    }
+    });
 
     const sortTable = useCallback(
       (

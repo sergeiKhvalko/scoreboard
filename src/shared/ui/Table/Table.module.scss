@@ -45,7 +45,6 @@
     th,
     td {
       text-align: center;
-      padding: 10px 0;
       border: none;
     }
 
@@ -100,5 +99,33 @@
 }
 
 .lose {
+  background-color: #a12c2c;
+}
+
+.position {
+  padding: 5px 10px !important;
+}
+
+.zone {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 5px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+}
+
+.zone1 {
+  background-color: #418225;
+}
+
+.zone2 {
+  background-color: #184718;
+}
+
+.zone3 {
+  background-color: #cd8c27;
+}
+
+.zone4 {
   background-color: #a12c2c;
 }
