@@ -12,9 +12,10 @@ import {
   TableVariantsProps,
   TeamProps,
 } from "../StandingTable/StandingTable";
+import { TableHeadersProps } from "@/shared/consts/tablesHeaders";
 
 interface TableProps {
-  headers: Array<string>;
+  headers: TableHeadersProps[];
   standings: Array<TeamProps>;
   cellWidth: string;
   matchType: MatchTypeProps;
@@ -49,18 +50,21 @@ const Table = memo((props: TableProps) => {
         <tr>
           <th>#</th>
           <th>Team</th>
-          {headers.map((item: string) => (
+          {headers.map((item: TableHeadersProps) => (
             <th
-              key={item}
+              key={item.btn}
               style={{ width: `${cellWidth}` }}
             >
-              <Button
-                variant="ghost"
-                className={cn({ [styles.activeBtn]: activeBtn === item })}
-                onClick={() => sortTable(item, standings, setActiveBtn)}
-              >
-                {item}
-              </Button>
+              <div className={styles.btnWrap}>
+                <Button
+                  variant="ghost"
+                  className={cn({ [styles.activeBtn]: activeBtn === item.btn })}
+                  onClick={() => sortTable(item.btn, standings, setActiveBtn)}
+                >
+                  {item.btn}
+                </Button>
+                <div className={styles.btnPopup}>{item.descr}</div>
+              </div>
             </th>
           ))}
           {variant === "overview" && <th style={{ width: "17%" }}>Form</th>}

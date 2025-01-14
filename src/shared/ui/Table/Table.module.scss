@@ -15,11 +15,40 @@
     }
   }
 
+  .btnWrap {
+    position: relative;
+    width: 100% !important;
+
+    &:hover {
+      .btnPopup {
+        display: block;
+        width: 200px;
+        text-align: center;
+      }
+    }
+  }
+
   .activeBtn {
     padding: 6px 16px;
     border: 1px solid var(--accent-color);
     border-radius: 34px;
     color: var(--accent-color);
+  }
+
+  .btnPopup {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    transform: translateX(-25%);
+    padding: 10px 20px;
+    background-color: var(--light-bg-color);
+    border-color: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    z-index: 1000;
+
+    @media screen and (min-width:600px) {
+      bottom: 150%;
+    }
   }
 
   tr {

@@ -4,6 +4,7 @@ import { Games, League, Matches } from "@/types/type";
 import { memo, useCallback } from "react";
 import { Table } from "../Table";
 import { commandZones } from "@/shared/consts/commandZones";
+import { tableHeaders, TableHeadersProps } from "@/shared/consts/tablesHeaders";
 
 export type MatchTypeProps = "summary" | "home" | "away";
 export type TableVariantsProps = "overview" | "corners" | "cards" | "totals";
@@ -77,31 +78,8 @@ const StandingTable = memo(
 
     sortTable("P", actualStanding);
 
-    const tableHeaders = {
-      overview: {
-        match: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-        first_half: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-        second_half: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-      },
-      corners: {
-        match: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-        first_half: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-        second_half: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-      },
-      cards: {
-        match: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-        first_half: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-        second_half: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-      },
-      totals: {
-        match: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-        first_half: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-        second_half: ["M", "W", "D", "L", "GF", "GA", "GD", "P"],
-      },
-    };
-
     const getCellWidth = useCallback(
-      (arr: Array<string>) => {
+      (arr: TableHeadersProps[]) => {
         const freeSpace = variant === "overview" ? 100 - 30 - 17 : 100 - 30;
         return `${freeSpace / arr.length}%`;
       },
