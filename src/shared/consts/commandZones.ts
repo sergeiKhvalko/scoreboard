@@ -7,6 +7,7 @@ export type commandZonesType = {
 };
 
 export const commandZones: commandZonesType = {
+  RPL: {},
   "Premier League": {
     1: "zone1",
     2: "zone1",

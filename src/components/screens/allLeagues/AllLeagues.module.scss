@@ -1,0 +1,170 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+
+  h1 {
+    margin: 0 10px;
+  }
+
+  span {
+    display: none;
+
+    @media screen and (min-width: 480px) {
+      display: block;
+      color: var(--text-grey-darken-1);
+      font-size: 22px;
+      margin-top: 8px;
+    }
+  }
+}
+
+.league {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+
+  grid-template-areas:
+    "logo leagueDescr action"
+    "stat progress action";
+
+  @media screen and (min-width: 992px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    grid-template-areas:
+      "logo leagueDescr stat progress action";
+  }
+
+  ;
+}
+
+.logo {
+  grid-area: logo;
+  text-align: center;
+
+  img {
+    @media screen and (min-width: 960px) {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+}
+
+.leagueDescr {
+  grid-area: leagueDescr;
+  padding: 10px 0;
+
+  @media screen and (min-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px 10px 0;
+  }
+}
+
+
+.linkName {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: var(--border-radius);
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+}
+
+.country {
+  display: grid;
+  padding: 0 20px;
+  margin-top: 30px;
+  grid-template-columns: 50px 1fr;
+  align-items: center;
+}
+
+.stat {
+  grid-area: stat;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  text-align: center;
+  margin-top: 10px;
+
+  @media screen and (min-width: 992px) {
+    margin-top: 5px;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+.chip {
+  padding: 6px;
+  margin-bottom: 10px;
+  background-color: #313e61;
+  border-radius: 9999px;
+  color: var(--accent-color);
+
+  @media screen and (min-width: 410px) {
+    padding: 10px;
+  }
+
+  @media screen and (min-width: 992px) {
+    padding: 15px;
+  }
+}
+
+.progress {
+  grid-area: progress;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (min-width: 992px) {
+    padding: 0 30px;
+  }
+}
+
+.progressBlock {
+  margin-top: 10px;
+  padding: 3px;
+  border: 3px solid var(--border-color);
+}
+
+.progressLine {
+  height: 25px;
+  background-color: yellow;
+}
+
+.progressInfo {
+  margin-top: 10px;
+  text-align: center;
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.btnAction {
+  grid-area: action;
+  display: flex;
+}
+
+.linkBtn {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  border-radius: var(--border-radius);
+  color: var(--accent-color);
+
+  @media screen and (min-width: 960px) {
+    font-size: 4rem;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 6rem;
+  }
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+}

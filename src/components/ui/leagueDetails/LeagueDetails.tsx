@@ -6,19 +6,15 @@ import Link from "next/link";
 import Image from "next/image";
 import cn from "classnames";
 import { usePathname } from "next/navigation";
+import { getCompletedProgress } from "@/shared/util/helpers";
 
 export const LeagueDetails = ({ league }: { league: League }) => {
   const pathname = usePathname().split("/");
   const leagueName = league.name.toLocaleLowerCase().replace(" ", "-");
   const currenTab = pathname[pathname.length - 1];
 
-  function getCompletedProgress() {
-    return Math.round(
-      (league.allMatches.total /
-        ((league.standings.length - 1) * 2 * (league.standings.length / 2))) *
-        100,
-    );
-  }
+  const totalMatches = league.allMatches.total;
+  const totalTeams = league.standings.length;
 
   return (
     <div className={styles.league}>
@@ -56,11 +52,15 @@ export const LeagueDetails = ({ league }: { league: League }) => {
               <div className={styles.progress}>
                 <div
                   className={styles.progressLine}
-                  style={{ width: `${getCompletedProgress()}%` }}
+                  style={{
+                    width: `${getCompletedProgress(totalMatches, totalTeams)}%`,
+                  }}
                 ></div>
               </div>
               <div>
-                <span className="bold">{getCompletedProgress()}%</span>
+                <span className="bold">
+                  {getCompletedProgress(totalMatches, totalTeams)}%
+                </span>
                 &nbsp;Completed
               </div>
             </div>
