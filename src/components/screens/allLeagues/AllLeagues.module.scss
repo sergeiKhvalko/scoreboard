@@ -168,3 +168,61 @@
     background-color: var(--button-hover);
   }
 }
+
+.disclosure {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.disclosureBtn {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+  span {
+    font-size: 30px;
+  }
+
+  &[data-open] {
+    background-color: var(--button-active);
+
+    span {
+      transform: rotate(90deg);
+    }
+  }
+
+}
+
+.panelWrap {
+  overflow: hidden;
+}
+
+.panelDescr {
+  padding: 20px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.panelItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+  }
+}
