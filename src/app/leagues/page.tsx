@@ -25,7 +25,5 @@ export default async function Page({
     (res) => res["response"][0]["league"],
   );
 
-  console.log(allLeagues);
-
   return <AllLeaguesPage allLeagues={allLeagues} />;
 }

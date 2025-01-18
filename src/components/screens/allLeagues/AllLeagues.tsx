@@ -36,8 +36,6 @@ export const AllLeaguesPage = ({ allLeagues }) => {
     [],
   );
 
-  console.log(allLeagues);
-
   return (
     <div>
       <Breadcrumbs items={breadcrumbs} />
@@ -63,9 +61,11 @@ export const AllLeaguesPage = ({ allLeagues }) => {
             </div>
             <div className={styles.leagueDescr}>
               <Link
-                href={`leagues/${league.name.toLowerCase()}?season=${
-                  league.season
-                }&league=${league.id}`}
+                href={`leagues/${league.name
+                  .toLowerCase()
+                  .replace(" ", "-")}?season=${league.season}&league=${
+                  league.id
+                }`}
                 className={styles.linkName}
               >
                 {league.name}
@@ -82,9 +82,11 @@ export const AllLeaguesPage = ({ allLeagues }) => {
             </div>
             <div className={styles.btnAction}>
               <Link
-                href={`leagues/${league.name.toLowerCase()}?season=${
-                  league.season
-                }&league=${league.id}`}
+                href={`leagues/${league.name
+                  .toLowerCase()
+                  .replace(" ", "-")}?season=${league.season}&league=${
+                  league.id
+                }`}
                 className={styles.linkBtn}
               >
                 <span className={cn("mdi", "mdi-chevron-right")}></span>

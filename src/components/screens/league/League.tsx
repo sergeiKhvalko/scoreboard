@@ -8,6 +8,7 @@ import { StandingTable } from "@/shared/ui/StandingTable";
 import { Tabs } from "@/shared/ui/Tabs/Tabs";
 import { ReactNode, useMemo } from "react";
 import cn from "classnames";
+import { commandZones } from "@/shared/consts/commandZones";
 
 interface LeagueProps {
   league: League;
@@ -118,13 +119,31 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
           <ul>
             <li className={cn(styles.zone, styles.zone1)}>
               <div className={styles.zoneBg}></div>
-              <div className={styles.zoneName}>UEFA Champions League</div>
+              <div className={styles.zoneName}>
+                {league.name === "Championship" ||
+                league.name === "FNL" ||
+                league.name === "2BundesLiga"
+                  ? "Promotion"
+                  : "UEFA Champions League"}
+              </div>
             </li>
             <li className={cn(styles.zone, styles.zone2)}>
               <div className={styles.zoneBg}></div>
-              <div className={styles.zoneName}>UEFA Europa League</div>
+              <div className={styles.zoneName}>
+                {league.name === "Championship" ||
+                league.name === "FNL" ||
+                league.name === "2BundesLiga"
+                  ? "Promotion Play-off"
+                  : "UEFA Europa League"}
+              </div>
             </li>
-            <li className={cn(styles.zone, styles.zone3)}>
+            {Object.values(commandZones[league.name]).includes("zone3") && (
+              <li className={cn(styles.zone, styles.zone3)}>
+                <div className={styles.zoneBg}></div>
+                <div className={styles.zoneName}>Relegation Play-off</div>
+              </li>
+            )}
+            <li className={cn(styles.zone, styles.zone4)}>
               <div className={styles.zoneBg}></div>
               <div className={styles.zoneName}>Relegation</div>
             </li>

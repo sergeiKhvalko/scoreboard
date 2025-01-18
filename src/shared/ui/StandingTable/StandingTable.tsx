@@ -37,8 +37,6 @@ const StandingTable = memo(
     console.log(league);
 
     league.standings.forEach((item, i) => {
-      console.log(league.name);
-
       const team: TeamProps = {
         id: item.id,
         name: item.name,

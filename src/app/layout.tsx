@@ -105,27 +105,27 @@ const pages = [
       },
       {
         name: "Bundesliga",
-        link: "/leagues/Bundesliga?season=2024&league=40",
+        link: "/leagues/bundesliga?season=2024&league=78",
       },
       {
         name: "2bundesliga",
-        link: "/leagues/2bundesliga?season=2024&league=40",
+        link: "/leagues/2bundesliga?season=2024&league=79",
       },
       {
         name: "SeriaA",
-        link: "/leagues/seria-a?season=2024&league=40",
+        link: "/leagues/seria-a?season=2024&league=135",
       },
       {
         name: "Laliga",
-        link: "/leagues/laliga?season=2024&league=40",
+        link: "/leagues/laliga?season=2024&league=140",
       },
       {
         name: "League1",
-        link: "/leagues/league1?season=2024&league=40",
+        link: "/leagues/league1?season=2024&league=61",
       },
       {
         name: "Primera",
-        link: "/leagues/primera?season=2024&league=40",
+        link: "/leagues/primera?season=2024&league=94",
       },
     ],
   },

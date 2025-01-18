@@ -76,7 +76,8 @@ const Table = memo((props: TableProps) => {
             <td className={styles.position}>
               <div
                 className={cn(styles.zone, {
-                  [styles[team.zone]]: variant === "overview",
+                  [styles[team.zone]]:
+                    variant === "overview" && matchType === "summary",
                 })}
               >
                 {i + 1}
