@@ -80,6 +80,83 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
     [league],
   );
 
+  const TablesHomeMatches: TableMatchesProps[] = useMemo(
+    () => [
+      {
+        title: "All match",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="home"
+            variant="overview"
+            time="match"
+          />
+        ),
+      },
+      {
+        title: "1st Half",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="home"
+            variant="overview"
+            time="first_half"
+          />
+        ),
+      },
+      {
+        title: "2nd Half",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="home"
+            variant="overview"
+            time="second_half"
+          />
+        ),
+      },
+    ],
+    [league],
+  );
+  const TablesAwayMatches: TableMatchesProps[] = useMemo(
+    () => [
+      {
+        title: "All match",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="away"
+            variant="overview"
+            time="match"
+          />
+        ),
+      },
+      {
+        title: "1st Half",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="away"
+            variant="overview"
+            time="first_half"
+          />
+        ),
+      },
+      {
+        title: "2nd Half",
+        content: (
+          <StandingTable
+            league={league}
+            matchType="away"
+            variant="overview"
+            time="second_half"
+          />
+        ),
+      },
+    ],
+    [league],
+  );
+
   const firstTeam = league.standings[0].name;
   const secondTeam = league.standings[1].name;
   const lastTeam = league.standings[league.standings.length - 1].name;
@@ -174,6 +251,26 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
           </ul>
         </div>
       </div>
+
+      <div className={styles.tableTitle}>
+        {league.name} <span className={styles.home}>Home</span> Table (
+        {league.country}) - {season}/{+season.slice(-2) + 1}
+      </div>
+
+      <Tabs
+        items={TablesHomeMatches}
+        className={styles.tabs}
+      />
+
+      <div className={styles.tableTitle}>
+        {league.name} <span className={styles.away}>Away</span> Table (
+        {league.country}) - {season}/{+season.slice(-2) + 1}
+      </div>
+
+      <Tabs
+        items={TablesAwayMatches}
+        className={styles.tabs}
+      />
     </div>
   );
 };

@@ -25,7 +25,11 @@ export interface TeamProps extends Partial<MatchTypes> {
   id: number;
   name: string;
   form: {
-    info: Array<string>;
+    info: Array<{
+      team1: string;
+      team2: string;
+      score: string;
+    }>;
     result: string;
   };
   zone: string;
@@ -41,8 +45,8 @@ const StandingTable = memo(
         id: item.id,
         name: item.name,
         form: {
-          info: [...item.form.info],
-          result: item.form.result,
+          info: [...item.form[matchType]["info"]],
+          result: item.form[matchType].result,
         },
         zone: league.name ? commandZones[league.name][i + 1] : "",
         [matchType]: {

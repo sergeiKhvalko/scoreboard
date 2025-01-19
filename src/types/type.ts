@@ -23,8 +23,30 @@ export interface oneTeam {
   matches: Matches;
   points: number;
   form: {
-    result: string;
-    info: Array<string>;
+    summary: {
+      result: string;
+      info: Array<{
+        team1: string;
+        team2: string;
+        score: string;
+      }>;
+    };
+    home: {
+      result: string;
+      info: Array<{
+        team1: string;
+        team2: string;
+        score: string;
+      }>;
+    };
+    away: {
+      result: string;
+      info: Array<{
+        team1: string;
+        team2: string;
+        score: string;
+      }>;
+    };
   };
   statistics: Statistics;
 }

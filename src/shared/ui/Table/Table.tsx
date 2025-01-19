@@ -112,16 +112,23 @@ const Table = memo((props: TableProps) => {
                     .slice(-5)
                     .split("")
                     .map((f, i) => (
-                      <span
+                      <div
+                        key={i}
                         className={cn(styles.formItem, {
                           [styles.win]: f === "W",
                           [styles.draw]: f === "D",
                           [styles.lose]: f === "L",
                         })}
-                        key={i}
                       >
-                        {f}
-                      </span>
+                        <span>{f}</span>
+                        <div className={styles.formPopup}>
+                          {`${
+                            shortTeamNames[team.form.info.slice(-5)[i].team1]
+                          } ${team.form.info.slice(-5)[i].score} ${
+                            shortTeamNames[team.form.info.slice(-5)[i].team2]
+                          }`}
+                        </div>
+                      </div>
                     ))}
                 </div>
               </td>
