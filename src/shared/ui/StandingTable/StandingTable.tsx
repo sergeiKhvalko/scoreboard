@@ -38,8 +38,6 @@ const StandingTable = memo(
   ({ league, matchType, variant, time }: TableProps) => {
     const actualStanding: Array<TeamProps> = [];
 
-    console.log(league);
-
     league.standings.forEach((item, i) => {
       const team: TeamProps = {
         id: item.id,
@@ -63,8 +61,6 @@ const StandingTable = memo(
         standings: TeamProps[],
         setActiveBtn?: (str: string) => void,
       ) => {
-        console.log("sort");
-
         standings.sort((a: TeamProps, b: TeamProps) => {
           return b[matchType] && a[matchType]
             ? b[matchType][time][item as keyof Games] -

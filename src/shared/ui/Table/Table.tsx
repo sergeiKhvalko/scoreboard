@@ -42,8 +42,6 @@ const Table = memo((props: TableProps) => {
 
   const [activeBtn, setActiveBtn] = useState("P");
 
-  console.log(standings);
-
   return (
     <table className={cn(styles.table, className)}>
       <thead>
@@ -73,7 +71,11 @@ const Table = memo((props: TableProps) => {
       <tbody>
         {standings.map((team: TeamProps, i) => (
           <tr key={team.name}>
-            <td className={styles.position}>
+            <td
+              className={cn(styles.position, {
+                [styles.posOdd]: i % 2,
+              })}
+            >
               <div
                 className={cn(styles.zone, {
                   [styles[team.zone]]:
@@ -83,7 +85,11 @@ const Table = memo((props: TableProps) => {
                 {i + 1}
               </div>
             </td>
-            <td>
+            <td
+              className={cn(styles.position, {
+                [styles.posOdd]: i % 2,
+              })}
+            >
               <Link
                 className={styles.teamName}
                 href={`/teams/${team.name}`}

@@ -1,6 +1,5 @@
 import { Breadcrumbs } from "@/shared/ui/Breadcrumbs/Breadcrumbs";
 import styles from "./League.module.scss";
-import Image from "next/image";
 import { League } from "@/types/type";
 
 import { LeagueDetails } from "@/components/ui/leagueDetails";
@@ -9,8 +8,9 @@ import { Tabs } from "@/shared/ui/Tabs/Tabs";
 import { ReactNode, useMemo } from "react";
 import cn from "classnames";
 import { commandZones } from "@/shared/consts/commandZones";
+import { LeagueTitle } from "@/components/ui/leagueTitle";
 
-interface LeagueProps {
+export interface LeagueProps {
   league: League;
   leagueId: string;
   season: string;
@@ -165,16 +165,11 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
     <div>
       <Breadcrumbs items={breadcrumbs} />
 
-      <div className={styles.leagueTitle}>
-        <Image //error
-          width={50}
-          height={50}
-          src={league.flag}
-          alt="country flag"
-        />
-        <h1 className={styles.title}>{league.name}</h1>
-        <span className={styles.descr}>Table & Stats</span>
-      </div>
+      <LeagueTitle
+        flag={league.flag}
+        title={league.name}
+        descr="Table & Stats"
+      />
 
       <div className={styles.wrapper}>
         <LeagueDetails league={league} />
@@ -188,7 +183,7 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
 
       <Tabs
         items={TablesAllMatches}
-        className={styles.tabs}
+        className="mt-20"
       />
 
       <div className={styles.tableResults}>
@@ -259,7 +254,7 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
 
       <Tabs
         items={TablesHomeMatches}
-        className={styles.tabs}
+        className="mt-20"
       />
 
       <div className={styles.tableTitle}>
@@ -269,7 +264,7 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
 
       <Tabs
         items={TablesAwayMatches}
-        className={styles.tabs}
+        className="mt-20"
       />
     </div>
   );

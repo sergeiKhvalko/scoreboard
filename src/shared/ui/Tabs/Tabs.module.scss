@@ -1,5 +1,8 @@
+.tabs {
+  position: relative;
+}
+
 .tabList {
-  min-width: 450px;
   display: grid;
   grid-template-columns: 1fr;
   border: 1px solid var(--border-color);
@@ -24,6 +27,14 @@
   }
 }
 
+.panelsWrap {
+  overflow-x: auto;
+
+  @media screen and (min-width: 600px) {
+    overflow-x: inherit;
+  }
+}
+
 .tabPanels {
-  min-width: 450px;
+  min-width: 480px;
 }

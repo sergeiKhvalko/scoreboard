@@ -6,6 +6,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import styles from "./Tabs.module.scss";
 import { TableMatchesProps } from "@/components/screens/league/League";
 import { memo, useRef } from "react";
+import cn from "classnames";
 
 interface TabsProps {
   items: TableMatchesProps[];
@@ -49,7 +50,7 @@ const Tabs = memo(({ items, className }: TabsProps) => {
   };
 
   return (
-    <TabGroup className={className}>
+    <TabGroup className={cn(styles.tabs, className)}>
       {({ selectedIndex }) => (
         <div>
           <TabList className={styles.tabList}>
@@ -65,7 +66,7 @@ const Tabs = memo(({ items, className }: TabsProps) => {
               ))}
             </div>
           </TabList>
-          <div>
+          <div className={styles.panelsWrap}>
             <TabPanels
               ref={tabsRef}
               className={styles.tabPanels}

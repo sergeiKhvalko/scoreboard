@@ -84,7 +84,10 @@ export const LeagueDetails = ({ league }: { league: League }) => {
           Fixtures
         </Link>
         <Link
-          className={cn({ [styles.active]: currenTab === "form-table" })}
+          className={cn({
+            [styles.active]:
+              currenTab === "form-table" || currenTab === "corner-stats",
+          })}
           href={`/leagues/${leagueName}/form-table?season=${league.season}&league=${league.id}`}
         >
           Detailed Stats

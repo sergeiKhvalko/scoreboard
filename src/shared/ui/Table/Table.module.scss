@@ -1,6 +1,6 @@
 .table {
   width: 100%;
-  padding: 10px 0 0 0;
+  padding: 20px 0 0 0;
   border-spacing: 0;
 
 
@@ -16,7 +16,6 @@
   }
 
   .btnWrap {
-    position: relative;
     width: 100% !important;
 
     &:hover {
@@ -38,8 +37,9 @@
   .btnPopup {
     display: none;
     position: absolute;
-    bottom: 100%;
-    transform: translateX(-25%);
+    right: 25%;
+    bottom: 800px;
+    // transform: translateX(-25%);
     padding: 10px 20px;
     background-color: var(--light-bg-color);
     border-color: 1px solid var(--border-color);
@@ -47,21 +47,62 @@
     z-index: 1000;
 
     @media screen and (min-width:600px) {
-      bottom: 150%;
+      right: 30%;
     }
   }
+
+
 
   tr {
     border: none;
 
-    :nth-child(1) {
-      width: 6%;
-      text-align: center;
+    &:nth-child(2n) {
+      background-color: #192232;
     }
 
-    :nth-child(2) {
+    th:nth-child(1) {
+      background-color: var(--bg-color);
+    }
+
+    th:nth-child(2) {
+      background-color: var(--bg-color);
+    }
+
+    td:nth-child(1),
+    th:nth-child(1) {
+      width: 6%;
+      text-align: center;
+
+      padding-right: 5px !important;
+      position: sticky;
+      left: 0px;
+      z-index: 100;
+    }
+
+    td:nth-child(2),
+    th:nth-child(2) {
       width: 24%;
       text-align: start;
+
+      padding-left: 0px;
+      position: sticky;
+      left: 42px;
+      z-index: 100;
+      white-space: initial;
+
+      &:before {
+        box-shadow: inset 10px 0 8px -8px #00000026;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: -1px;
+        width: 30px;
+        transform: translate(100%);
+        transition: box-shadow .3s;
+        content: "";
+        pointer-events: none;
+
+      }
     }
 
     th {
@@ -74,113 +115,131 @@
     th,
     td {
       text-align: center;
-      border: none;
     }
 
-    &:nth-child(2n) {
-      background-color: rgba(249, 249, 249, 0.05);
+
+
+    td>a {
+      display: block;
+      width: 100% !important;
+      padding: 5px 0;
+      text-align: start !important;
+    }
+  }
+
+  .position {
+    background-color: var(--bg-color);
+  }
+
+  .posOdd {
+    background-color: #192232;
+  }
+
+  tr:hover {
+    &:not(thead>tr) {
+      background-color: #2a3549;
+    }
+
+    .position {
+      background-color: #2a3549;
+    }
+  }
+
+
+  .form {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .formItem {
+    position: relative;
+    flex: 1 0 20px;
+    padding: 3px;
+    border-radius: var(--border-radius);
+    margin: 0 1px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+
+    @media screen and (min-width: 600px) {
+      flex: 0 0 25px;
+      padding: 5px;
+      font-size: inherit;
     }
 
     &:hover {
-      background-color: var(--button-hover);
+      .formPopup {
+        display: block;
+      }
     }
   }
 
+  .formPopup {
+    display: none;
+    position: absolute;
+    width: 1000% !important;
+    bottom: 100%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: var(--light-bg-color);
+    border-color: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    text-align: center !important;
+    z-index: 1000;
 
-}
+    @media screen and (min-width:600px) {
+      bottom: 150%;
+    }
+  }
 
-.form {
-  width: 100% !important;
-  display: flex;
-  justify-content: center;
-}
+  .goalsFor {
+    color: #6af92d;
+  }
 
-.formItem {
-  position: relative;
-  flex: 1 0 20px;
-  padding: 3px;
-  border-radius: var(--border-radius);
-  margin: 0 1px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
+  .goalsAgainst {
+    color: #ff2929;
+  }
 
-  @media screen and (min-width: 600px) {
-    flex: 0 0 25px;
+  .win {
+    background-color: var(--greenFormTable);
+  }
+
+  .draw {
+    background-color: #cd8c27;
+    ;
+  }
+
+  .lose {
+    background-color: var(--redFormTable);
+  }
+
+  .position {
+    padding: 5px 10px !important;
+  }
+
+  .zone {
+    width: 100% !important;
+    height: 100% !important;
     padding: 5px;
-    font-size: inherit;
+    border-radius: var(--border-radius);
+    font-weight: bold;
   }
 
-  &:hover {
-    .formPopup {
-      display: block;
-    }
+  .zone1 {
+    background-color: #418225 !important;
   }
-}
 
-.formPopup {
-  display: none;
-  position: absolute;
-  width: 1000% !important;
-  bottom: 100%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: var(--light-bg-color);
-  border-color: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  text-align: center !important;
-  z-index: 1000;
-
-  @media screen and (min-width:600px) {
-    bottom: 150%;
+  .zone2 {
+    background-color: #184718 !important;
   }
-}
 
-.goalsFor {
-  color: #6af92d;
-}
+  .zone3 {
+    background-color: #cd8c27 !important;
+  }
 
-.goalsAgainst {
-  color: #ff2929;
-}
+  .zone4 {
+    background-color: #a12c2c !important;
+  }
 
-.win {
-  background-color: var(--greenFormTable);
-}
-
-.draw {
-  background-color: #cd8c27;
-  ;
-}
-
-.lose {
-  background-color: var(--redFormTable);
-}
-
-.position {
-  padding: 5px 10px !important;
-}
-
-.zone {
-  width: 100% !important;
-  height: 100% !important;
-  padding: 5px;
-  border-radius: var(--border-radius);
-  font-weight: bold;
-}
-
-.zone1 {
-  background-color: #418225;
-}
-
-.zone2 {
-  background-color: #184718;
-}
-
-.zone3 {
-  background-color: #cd8c27;
-}
-
-.zone4 {
-  background-color: #a12c2c;
 }
