@@ -39,7 +39,6 @@ export function LoginForm() {
   const { register, isLoadingRegister } = useRegisterMutation();
 
   const onSubmit = (values: TypeRegisterSchema) => {
-    console.log(values);
     register({ values });
     // if (recaptchaValue) {
     //   register({ values, recaptcha: recaptchaValue });
