@@ -3,15 +3,20 @@
 }
 
 .tabList {
+  min-width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-auto-columns: 33.3%;
+  grid-auto-flow: column;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
+  overflow: auto;
+  outline: none;
+  margin-bottom: 20px;
 }
 
 .tab {
   padding: 20px 0;
-  width: 33.3%;
+  width: 100%;
   text-align: center;
   background-color: transparent;
   border: none;
@@ -27,6 +32,13 @@
   }
 }
 
+.tabWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .panelsWrap {
   overflow-x: auto;
 
@@ -36,5 +48,5 @@
 }
 
 .tabPanels {
-  min-width: 480px;
+  // min-width: 480px;
 }

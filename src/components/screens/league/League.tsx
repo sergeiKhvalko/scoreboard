@@ -17,6 +17,7 @@ export interface LeagueProps {
 }
 export interface TableMatchesProps {
   title: string;
+  image?: string;
   content: ReactNode;
 }
 export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
@@ -184,6 +185,8 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
       <Tabs
         items={TablesAllMatches}
         className="mt-20"
+        overflow="auto"
+        minWidth={500}
       />
 
       <div className={styles.tableResults}>
@@ -255,6 +258,8 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
       <Tabs
         items={TablesHomeMatches}
         className="mt-20"
+        overflow="auto"
+        minWidth={500}
       />
 
       <div className={styles.tableTitle}>
@@ -265,6 +270,8 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
       <Tabs
         items={TablesAwayMatches}
         className="mt-20"
+        overflow="auto"
+        minWidth={500}
       />
     </div>
   );

@@ -130,20 +130,24 @@ export const tableHeaders = {
         descr: "Loss",
       },
       {
-        btn: "GF",
+        btn: "u8.5",
         descr: "Goals For (GF)\nThe number of goals this\nteam have scored.",
       },
       {
-        btn: "GA",
+        btn: "u9.5",
         descr:
           "Goals Against (GA)\nThe number of goals this\nteam have conceded.",
       },
       {
-        btn: "GD",
+        btn: "o9.5",
         descr: "Goal Difference (GD)\nGoals Scored - Goals Conceded",
       },
       {
-        btn: "P",
+        btn: "o10.5",
+        descr: "Points",
+      },
+      {
+        btn: "o11.5",
         descr: "Points",
       },
     ],

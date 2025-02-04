@@ -24,6 +24,7 @@ export const LeagueDetails = ({ league }: { league: League }) => {
           height={155}
           src={league.logo}
           alt={league.name}
+          loading="lazy"
         />
         <div className={styles.leagueDetails}>
           <div className={styles.headlines}>
@@ -71,7 +72,7 @@ export const LeagueDetails = ({ league }: { league: League }) => {
         <Link
           className={cn({
             [styles.active]:
-              currenTab !== "fixtures" && currenTab !== "form-table",
+              currenTab !== "fixtures" && currenTab !== "detailed-stats",
           })}
           href={`/leagues/${leagueName}?season=${league.season}&league=${league.id}`}
         >
@@ -85,10 +86,9 @@ export const LeagueDetails = ({ league }: { league: League }) => {
         </Link>
         <Link
           className={cn({
-            [styles.active]:
-              currenTab === "form-table" || currenTab === "corner-stats",
+            [styles.active]: currenTab === "detailed-stats",
           })}
-          href={`/leagues/${leagueName}/form-table?season=${league.season}&league=${league.id}`}
+          href={`/leagues/${leagueName}/detailed-stats?season=${league.season}&league=${league.id}`}
         >
           Detailed Stats
         </Link>
