@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import cn from "classnames";
 import { usePathname } from "next/navigation";
-import { getCompletedProgress } from "@/shared/util/helpers";
+import { getCompletedProgress } from "@/shared/utils/helpers";
 
 export const LeagueDetails = ({ league }: { league: League }) => {
   const pathname = usePathname().split("/");

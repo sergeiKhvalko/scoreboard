@@ -5,7 +5,7 @@ class StandingService {
     leagueId: string,
     seasonId: string = "2024",
   ): Promise<League | undefined> {
-    const url = `http://127.0.0.1:8000/standings?season=${seasonId}&league=${leagueId}`;
+    const url = `${process.env.SERVER_URL}/standings?season=${seasonId}&league=${leagueId}`;
 
     const options = {
       method: "GET",

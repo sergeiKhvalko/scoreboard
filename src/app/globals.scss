@@ -90,6 +90,21 @@ li {
   }
 }
 
+.auth-page {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-block {
+  display: block;
+}
+
+.jcc {
+  justify-content: center;
+}
+
 .bold {
   font-weight: bold;
 }

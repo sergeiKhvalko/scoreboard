@@ -15,6 +15,7 @@ const LeagueTitle = memo(({ flag, title, descr }: LeagueTitleProps) => {
         height={50}
         src={flag}
         alt="country flag"
+        loading="lazy"
       />
       <h1 className={styles.title}>{title}</h1>
       <span className={styles.descr}>{descr}</span>

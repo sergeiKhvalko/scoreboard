@@ -4,6 +4,7 @@ import "./globals.scss";
 import { Navbar } from "@/widgets/Navbar";
 import cn from "classnames";
 import { BottomNav } from "@/shared/ui/BottomNav/BottomNav";
+import { MainProvider } from "@/shared/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,17 +37,19 @@ export default function RootLayout({
           "app_dark_theme",
         )}
       >
-        <div
-          id="app"
-          className={cn("app")}
-        >
-          <Navbar pages={pages} />
-          <main className="main">
-            <div className="container">{children}</div>
-          </main>
+        <MainProvider>
+          <div
+            id="app"
+            className={cn("app")}
+          >
+            <Navbar pages={pages} />
+            <main className="main">
+              <div className="container">{children}</div>
+            </main>
 
-          <BottomNav pages={pages} />
-        </div>
+            <BottomNav pages={pages} />
+          </div>
+        </MainProvider>
       </body>
     </html>
   );

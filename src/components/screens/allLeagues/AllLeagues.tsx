@@ -10,7 +10,7 @@ import cn from "classnames";
 import {
   getCompletedProgress,
   getInfoForAllMatchweeks,
-} from "@/shared/util/helpers";
+} from "@/shared/utils/helpers";
 import {
   Disclosure,
   DisclosureButton,
