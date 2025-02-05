@@ -21,11 +21,8 @@ interface TableProps {
   matchType: MatchTypeProps;
   variant: TableVariantsProps;
   time: MatchTimeProps;
-  sortTable: (
-    item: string,
-    standings: TeamProps[],
-    fn: (str: string) => void,
-  ) => void;
+  sortTable: (item: string, standings: TeamProps[]) => void;
+  activeColumn: string;
   className?: string;
 }
 const Table = memo((props: TableProps) => {
@@ -37,10 +34,11 @@ const Table = memo((props: TableProps) => {
     variant,
     time,
     sortTable,
+    activeColumn,
     className,
   } = props;
 
-  const [activeBtn, setActiveBtn] = useState("P");
+  const [activeBtn, setActiveBtn] = useState(activeColumn);
 
   return (
     <table className={cn(styles.table, className)}>
@@ -56,8 +54,13 @@ const Table = memo((props: TableProps) => {
               <div className={styles.btnWrap}>
                 <Button
                   variant="ghost"
-                  className={cn({ [styles.activeBtn]: activeBtn === item.btn })}
-                  onClick={() => sortTable(item.btn, standings, setActiveBtn)}
+                  className={cn({
+                    [styles.activeBtn]: activeBtn === item.sortBtn,
+                  })}
+                  onClick={() => {
+                    sortTable(item.sortBtn, standings);
+                    setActiveBtn(item.sortBtn);
+                  }}
                 >
                   {item.btn}
                 </Button>
@@ -115,7 +118,7 @@ const Table = memo((props: TableProps) => {
               <td style={{ width: "17%" }}>
                 <div className={styles.form}>
                   {team.form.result
-                    .slice(-5)
+                    ?.slice(-5)
                     .split("")
                     .map((f, i) => (
                       <div

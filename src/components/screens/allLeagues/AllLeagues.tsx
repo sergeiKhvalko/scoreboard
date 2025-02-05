@@ -17,7 +17,6 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { AnimatePresence, motion, easeOut } from "framer-motion";
-import { div } from "framer-motion/client";
 
 export const AllLeaguesPage = ({ allLeagues }) => {
   const breadcrumbs = useMemo(

@@ -177,7 +177,7 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         <div className={styles.fixtures}>fixtures</div>
       </div>
 
-      <div className={styles.tableTitle}>
+      <div className="table-title">
         {league.name} Table ({league.country}) - {season}/
         {+season.slice(-2) + 1}
       </div>
@@ -250,8 +250,8 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         </div>
       </div>
 
-      <div className={styles.tableTitle}>
-        {league.name} <span className={styles.home}>Home</span> Table (
+      <div className="table-title">
+        {league.name} <span className="home-table">Home</span> Table (
         {league.country}) - {season}/{+season.slice(-2) + 1}
       </div>
 
@@ -262,8 +262,8 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         minWidth={500}
       />
 
-      <div className={styles.tableTitle}>
-        {league.name} <span className={styles.away}>Away</span> Table (
+      <div className="table-title">
+        {league.name} <span className="away-table">Away</span> Table (
         {league.country}) - {season}/{+season.slice(-2) + 1}
       </div>
 

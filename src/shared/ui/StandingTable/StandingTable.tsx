@@ -7,7 +7,7 @@ import { commandZones } from "@/shared/consts/commandZones";
 import { tableHeaders, TableHeadersProps } from "@/shared/consts/tablesHeaders";
 
 export type MatchTypeProps = "summary" | "home" | "away";
-export type TableVariantsProps = "overview" | "corners" | "cards" | "totals";
+export type TableVariantsProps = "overview" | "corners" | "individ_corners";
 export type MatchTimeProps = "match" | "first_half" | "second_half";
 interface TableProps {
   league: League;
@@ -25,12 +25,14 @@ export interface TeamProps extends Partial<MatchTypes> {
   id: number;
   name: string;
   form: {
-    info: Array<{
-      team1: string;
-      team2: string;
-      score: string;
-    }>;
-    result: string;
+    info?:
+      | Array<{
+          team1: string;
+          team2: string;
+          score: string;
+        }>
+      | string;
+    result?: string;
   };
   zone: string;
 }
@@ -42,13 +44,19 @@ const StandingTable = memo(
       const team: TeamProps = {
         id: item.id,
         name: item.name,
-        form: {
-          info: [...item.form[matchType]["info"]],
-          result: item.form[matchType].result,
-        },
+        form:
+          variant === "overview"
+            ? {
+                info: [...item.form[matchType]["info"]],
+                result: item.form[matchType].result,
+              }
+            : {},
         zone: league.name ? commandZones[league.name][i + 1] : "",
         [matchType]: {
-          [time]: { ...item.matches[matchType][time] },
+          [time]:
+            variant === "overview"
+              ? { ...item.matches[matchType][time] }
+              : { ...item.statistics[variant][matchType][time] },
         },
       };
 
@@ -56,25 +64,36 @@ const StandingTable = memo(
     });
 
     const sortTable = useCallback(
-      (
-        item: string,
-        standings: TeamProps[],
-        setActiveBtn?: (str: string) => void,
-      ) => {
+      (item: string, standings: TeamProps[]) => {
         standings.sort((a: TeamProps, b: TeamProps) => {
           return b[matchType] && a[matchType]
             ? b[matchType][time][item as keyof Games] -
                 a[matchType][time][item as keyof Games]
             : 0;
         });
-        if (setActiveBtn) {
-          setActiveBtn(item);
-        }
       },
       [matchType, time],
     );
 
-    sortTable("P", actualStanding);
+    const mapToSort = {
+      overview: {
+        match: "P",
+        first_half: "P",
+        second_half: "P",
+      },
+      corners: {
+        match: "corner_over_9_5",
+        first_half: "corner_over_4_5",
+        second_half: "corner_over_4_5",
+      },
+      individ_corners: {
+        match: "corner_count",
+        first_half: "corner_over_4_5",
+        second_half: "corner_over_4_5",
+      },
+    };
+
+    sortTable(mapToSort[variant][time], actualStanding);
 
     const getCellWidth = useCallback(
       (arr: TableHeadersProps[]) => {
@@ -93,6 +112,7 @@ const StandingTable = memo(
         variant={variant}
         time={time}
         sortTable={sortTable}
+        activeColumn={mapToSort[variant][time]}
         // className="mt-20"
       />
     );
