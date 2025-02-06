@@ -1,0 +1,18 @@
+.tableTitle {
+  margin: 100px 0 20px 0;
+  padding: 20px 10px;
+  font-size: 20px;
+  color: var(--text-grey-darken-1);
+  background-color: rgba(249, 249, 249, 0.05);
+  border-radius: var(--border-radius);
+}
+
+.homeTable {
+  font-weight: bold;
+  color: #418225;
+}
+
+.awayTable {
+  font-weight: bold;
+  color: var(--redFormTable);
+}

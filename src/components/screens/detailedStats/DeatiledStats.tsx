@@ -11,6 +11,7 @@ import {
   MatchTypeProps,
   TableVariantsProps,
 } from "@/shared/ui/StandingTable/StandingTable";
+import { TableHeader } from "@/shared/ui/TableHeader/TableHeader";
 
 export const DetailedStatsPage = ({
   league,
@@ -79,45 +80,6 @@ export const DetailedStatsPage = ({
     [],
   );
 
-  // const corners = useMemo(
-  //   () => [
-  //     {
-  //       title: "All match",
-  //       content: (
-  //         <StandingTable
-  //           league={league}
-  //           matchType="summary"
-  //           variant="corners"
-  //           time="match"
-  //         />
-  //       ),
-  //     },
-  //     {
-  //       title: "1st Half",
-  //       content: (
-  //         <StandingTable
-  //           league={league}
-  //           matchType="summary"
-  //           variant="corners"
-  //           time="first_half"
-  //         />
-  //       ),
-  //     },
-  //     {
-  //       title: "2nd Half",
-  //       content: (
-  //         <StandingTable
-  //           league={league}
-  //           matchType="summary"
-  //           variant="corners"
-  //           time="second_half"
-  //         />
-  //       ),
-  //     },
-  //   ],
-  //   [league],
-  // );
-
   const allStats = useMemo(
     () => [
       {
@@ -136,11 +98,13 @@ export const DetailedStatsPage = ({
             />
             <div>Description for table...</div>
 
-            <div className="table-title">
-              {league.name} <span className="home-table">Home</span> Table of
-              total corners ({league.country}) - {season}/
-              {+season.slice(-2) + 1}
-            </div>
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table of
+              total corners"
+            />
 
             <Tabs
               items={generateTables(league, "home", "corners", [
@@ -152,11 +116,13 @@ export const DetailedStatsPage = ({
               minWidth={500}
             />
 
-            <div className="table-title">
-              {league.name} <span className="away-table">Away</span> Table of
-              total corners ({league.country}) - {season}/
-              {+season.slice(-2) + 1}
-            </div>
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table of
+              total corners"
+            />
 
             <Tabs
               items={generateTables(league, "away", "corners", [
@@ -186,11 +152,13 @@ export const DetailedStatsPage = ({
             />
             <div>Description for table...</div>
 
-            <div className="table-title">
-              {league.name} <span className="home-table">Home</span> Table of
-              individual corner teams ({league.country}) - {season}/
-              {+season.slice(-2) + 1}
-            </div>
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table of
+              individual corner teams"
+            />
 
             <Tabs
               items={generateTables(league, "home", "individ_corners", [
@@ -202,11 +170,13 @@ export const DetailedStatsPage = ({
               minWidth={500}
             />
 
-            <div className="table-title">
-              {league.name} <span className="away-table">Away</span> Table of
-              individual corner teams ({league.country}) - {season}/
-              {+season.slice(-2) + 1}
-            </div>
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table of
+              individual corner teams"
+            />
 
             <Tabs
               items={generateTables(league, "away", "individ_corners", [
@@ -261,10 +231,11 @@ export const DetailedStatsPage = ({
         <div className={styles.stats}>stats</div>
       </div>
 
-      <div className="table-title">
-        {league.name} Detailed Statistics Tables ({league.country}) - {season}/
-        {+season.slice(-2) + 1}
-      </div>
+      <TableHeader
+        league={league}
+        season={season}
+        title="Detailed Statistics Tables"
+      />
 
       <Tabs
         items={allStats}

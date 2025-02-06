@@ -9,6 +9,7 @@ import { ReactNode, useMemo } from "react";
 import cn from "classnames";
 import { commandZones } from "@/shared/consts/commandZones";
 import { LeagueTitle } from "@/components/ui/leagueTitle";
+import { TableHeader } from "@/shared/ui/TableHeader";
 
 export interface LeagueProps {
   league: League;
@@ -177,10 +178,11 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         <div className={styles.fixtures}>fixtures</div>
       </div>
 
-      <div className="table-title">
-        {league.name} Table ({league.country}) - {season}/
-        {+season.slice(-2) + 1}
-      </div>
+      <TableHeader
+        league={league}
+        season={season}
+        title="Table"
+      />
 
       <Tabs
         items={TablesAllMatches}
@@ -250,10 +252,12 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         </div>
       </div>
 
-      <div className="table-title">
-        {league.name} <span className="home-table">Home</span> Table (
-        {league.country}) - {season}/{+season.slice(-2) + 1}
-      </div>
+      <TableHeader
+        league={league}
+        season={season}
+        title="Home"
+        descr="Table"
+      />
 
       <Tabs
         items={TablesHomeMatches}
@@ -262,10 +266,12 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         minWidth={500}
       />
 
-      <div className="table-title">
-        {league.name} <span className="away-table">Away</span> Table (
-        {league.country}) - {season}/{+season.slice(-2) + 1}
-      </div>
+      <TableHeader
+        league={league}
+        season={season}
+        title="Away"
+        descr="Table"
+      />
 
       <Tabs
         items={TablesAwayMatches}

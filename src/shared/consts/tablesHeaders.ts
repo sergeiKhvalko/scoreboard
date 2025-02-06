@@ -422,218 +422,147 @@ export const tableHeaders = {
       },
     ],
   },
-  // cards: {
-  //   match: [
-  //     {
-  //       btn: "M",
-  //       descr: "Matches Played this season",
-  //     },
-  //     {
-  //       btn: "W",
-  //       descr: "Win",
-  //     },
-  //     {
-  //       btn: "D",
-  //       descr: "Draw",
-  //     },
-  //     {
-  //       btn: "L",
-  //       descr: "Loss",
-  //     },
-  //     {
-  //       btn: "GF",
-  //       descr: "Goals For (GF)\nThe number of goals this\nteam have scored.",
-  //     },
-  //     {
-  //       btn: "GA",
-  //       descr:
-  //         "Goals Against (GA)\nThe number of goals this\nteam have conceded.",
-  //     },
-  //     {
-  //       btn: "GD",
-  //       descr: "Goal Difference (GD)\nGoals Scored - Goals Conceded",
-  //     },
-  //     {
-  //       btn: "P",
-  //       descr: "Points",
-  //     },
-  //   ],
-  //   first_half: [
-  //     {
-  //       btn: "M",
-  //       descr: "Matches Played this season",
-  //     },
-  //     {
-  //       btn: "W",
-  //       descr: "Win",
-  //     },
-  //     {
-  //       btn: "D",
-  //       descr: "Draw",
-  //     },
-  //     {
-  //       btn: "L",
-  //       descr: "Loss",
-  //     },
-  //     {
-  //       btn: "GF",
-  //       descr: "Goals For (GF)\nThe number of goals this\nteam have scored.",
-  //     },
-  //     {
-  //       btn: "GA",
-  //       descr:
-  //         "Goals Against (GA)\nThe number of goals this\nteam have conceded.",
-  //     },
-  //     {
-  //       btn: "GD",
-  //       descr: "Goal Difference (GD)\nGoals Scored - Goals Conceded",
-  //     },
-  //     {
-  //       btn: "P",
-  //       descr: "Points",
-  //     },
-  //   ],
-  //   second_half: [
-  //     {
-  //       btn: "M",
-  //       descr: "Matches Played this season",
-  //     },
-  //     {
-  //       btn: "W",
-  //       descr: "Win",
-  //     },
-  //     {
-  //       btn: "D",
-  //       descr: "Draw",
-  //     },
-  //     {
-  //       btn: "L",
-  //       descr: "Loss",
-  //     },
-  //     {
-  //       btn: "GF",
-  //       descr: "Goals For (GF)\nThe number of goals this\nteam have scored.",
-  //     },
-  //     {
-  //       btn: "GA",
-  //       descr:
-  //         "Goals Against (GA)\nThe number of goals this\nteam have conceded.",
-  //     },
-  //     {
-  //       btn: "GD",
-  //       descr: "Goal Difference (GD)\nGoals Scored - Goals Conceded",
-  //     },
-  //     {
-  //       btn: "P",
-  //       descr: "Points",
-  //     },
-  //   ],
-  // },
-  // totals: {
-  //   match: [
-  //     {
-  //       btn: "M",
-  //       descr: "Matches Played this season",
-  //     },
-  //     {
-  //       btn: "W",
-  //       descr: "Win",
-  //     },
-  //     {
-  //       btn: "D",
-  //       descr: "Draw",
-  //     },
-  //     {
-  //       btn: "L",
-  //       descr: "Loss",
-  //     },
-  //     {
-  //       btn: "GF",
-  //       descr: "Goals For (GF)\nThe number of goals this\nteam have scored.",
-  //     },
-  //     {
-  //       btn: "GA",
-  //       descr:
-  //         "Goals Against (GA)\nThe number of goals this\nteam have conceded.",
-  //     },
-  //     {
-  //       btn: "GD",
-  //       descr: "Goal Difference (GD)\nGoals Scored - Goals Conceded",
-  //     },
-  //     {
-  //       btn: "P",
-  //       descr: "Points",
-  //     },
-  //   ],
-  //   first_half: [
-  //     {
-  //       btn: "M",
-  //       descr: "Matches Played this season",
-  //     },
-  //     {
-  //       btn: "W",
-  //       descr: "Win",
-  //     },
-  //     {
-  //       btn: "D",
-  //       descr: "Draw",
-  //     },
-  //     {
-  //       btn: "L",
-  //       descr: "Loss",
-  //     },
-  //     {
-  //       btn: "GF",
-  //       descr: "Goals For (GF)\nThe number of goals this\nteam have scored.",
-  //     },
-  //     {
-  //       btn: "GA",
-  //       descr:
-  //         "Goals Against (GA)\nThe number of goals this\nteam have conceded.",
-  //     },
-  //     {
-  //       btn: "GD",
-  //       descr: "Goal Difference (GD)\nGoals Scored - Goals Conceded",
-  //     },
-  //     {
-  //       btn: "P",
-  //       descr: "Points",
-  //     },
-  //   ],
-  //   second_half: [
-  //     {
-  //       btn: "M",
-  //       descr: "Matches Played this season",
-  //     },
-  //     {
-  //       btn: "W",
-  //       descr: "Win",
-  //     },
-  //     {
-  //       btn: "D",
-  //       descr: "Draw",
-  //     },
-  //     {
-  //       btn: "L",
-  //       descr: "Loss",
-  //     },
-  //     {
-  //       btn: "GF",
-  //       descr: "Goals For (GF)\nThe number of goals this\nteam have scored.",
-  //     },
-  //     {
-  //       btn: "GA",
-  //       descr:
-  //         "Goals Against (GA)\nThe number of goals this\nteam have conceded.",
-  //     },
-  //     {
-  //       btn: "GD",
-  //       descr: "Goal Difference (GD)\nGoals Scored - Goals Conceded",
-  //     },
-  //     {
-  //       btn: "P",
-  //       descr: "Points",
-  //     },
-  //   ],
-  // },
+  yellow_cards: {
+    match: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "W",
+        sortBtn: "yellow_win",
+        descr: "Win",
+      },
+      {
+        btn: "D",
+        sortBtn: "yellow_draw",
+        descr: "Draw",
+      },
+      {
+        btn: "L",
+        sortBtn: "yellow_lose",
+        descr: "Loss",
+      },
+      {
+        btn: "u2.5",
+        sortBtn: "yellow_under_2_5",
+        descr: "",
+      },
+      {
+        btn: "u3.5",
+        sortBtn: "yellow_under_3_5",
+        descr: "",
+      },
+      {
+        btn: "o3.5",
+        sortBtn: "yellow_over_3_5",
+        descr: "",
+      },
+      {
+        btn: "o4.5",
+        sortBtn: "yellow_over_4_5",
+        descr: "",
+      },
+      {
+        btn: "o5.5",
+        sortBtn: "yellow_over_5_5",
+        descr: "",
+      },
+    ],
+    first_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "W",
+        sortBtn: "yellow_win",
+        descr: "Win",
+      },
+      {
+        btn: "D",
+        sortBtn: "yellow_draw",
+        descr: "Draw",
+      },
+      {
+        btn: "L",
+        sortBtn: "yellow_lose",
+        descr: "Loss",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "yellow_under_0_5",
+        descr: "",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "yellow_under_1_5",
+        descr: "",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "yellow_over_1_5",
+        descr: "",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "yellow_over_2_5",
+        descr: "",
+      },
+      {
+        btn: "o3.5",
+        sortBtn: "yellow_over_3_5",
+        descr: "",
+      },
+    ],
+    second_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "W",
+        sortBtn: "yellow_win",
+        descr: "Win",
+      },
+      {
+        btn: "D",
+        sortBtn: "yellow_draw",
+        descr: "Draw",
+      },
+      {
+        btn: "L",
+        sortBtn: "yellow_lose",
+        descr: "Loss",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "yellow_under_0_5",
+        descr: "",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "yellow_under_1_5",
+        descr: "",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "yellow_over_1_5",
+        descr: "",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "yellow_over_2_5",
+        descr: "",
+      },
+      {
+        btn: "o3.5",
+        sortBtn: "yellow_over_3_5",
+        descr: "",
+      },
+    ],
+  },
 };

@@ -128,22 +128,3 @@ li {
 .border-bottom {
   border-bottom: 1px solid var(--border-color);
 }
-
-.table-title {
-  margin: 100px 0 20px 0;
-  padding: 20px 10px;
-  font-size: 20px;
-  color: var(--text-grey-darken-1);
-  background-color: rgba(249, 249, 249, 0.05);
-  border-radius: var(--border-radius);
-}
-
-.home-table {
-  font-weight: bold;
-  color: #418225;
-}
-
-.away-table {
-  font-weight: bold;
-  color: var(--redFormTable);
-}
