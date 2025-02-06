@@ -139,13 +139,11 @@ export interface Stat {
   in_total_under_1_5: number;
   in_total_over_1_5: number;
   in_total_over_2_5: number;
-  bs_count: number;
   bs_yes: number;
   bs_no: number;
   bs_win: number;
   bs_draw: number;
   bs_lose: number;
-  prod_count: number;
   first_over_second: number;
   first_equal_second: number;
   second_over_first: number;

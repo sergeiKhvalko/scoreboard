@@ -688,4 +688,464 @@ export const tableHeaders = {
       },
     ],
   },
+  total: {
+    match: [
+      {
+        btn: "M",
+        sortBtn: "total_count",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "W",
+        sortBtn: "total_win",
+        descr: "Win",
+      },
+      {
+        btn: "D",
+        sortBtn: "total_draw",
+        descr: "Draw",
+      },
+      {
+        btn: "L",
+        sortBtn: "total_lose",
+        descr: "Loss",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "total_under_1_5",
+        descr: "",
+      },
+      {
+        btn: "u2.5",
+        sortBtn: "total_under_2_5",
+        descr: "",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "total_over_2_5",
+        descr: "",
+      },
+      {
+        btn: "o3.5",
+        sortBtn: "total_over_3_5",
+        descr: "",
+      },
+      {
+        btn: "o4.5",
+        sortBtn: "total_over_4_5",
+        descr: "",
+      },
+    ],
+    first_half: [
+      {
+        btn: "M",
+        sortBtn: "total_count",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "W",
+        sortBtn: "total_win",
+        descr: "Win",
+      },
+      {
+        btn: "D",
+        sortBtn: "total_draw",
+        descr: "Draw",
+      },
+      {
+        btn: "L",
+        sortBtn: "total_lose",
+        descr: "Loss",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "total_under_0_5",
+        descr: "",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "total_under_1_5",
+        descr: "",
+      },
+      {
+        btn: "o0.5",
+        sortBtn: "total_over_0_5",
+        descr: "",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "total_over_1_5",
+        descr: "",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "total_over_2_5",
+        descr: "",
+      },
+    ],
+    second_half: [
+      {
+        btn: "M",
+        sortBtn: "total_count",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "W",
+        sortBtn: "total_win",
+        descr: "Win",
+      },
+      {
+        btn: "D",
+        sortBtn: "total_draw",
+        descr: "Draw",
+      },
+      {
+        btn: "L",
+        sortBtn: "total_lose",
+        descr: "Loss",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "total_under_0_5",
+        descr: "",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "total_under_1_5",
+        descr: "",
+      },
+      {
+        btn: "o0.5",
+        sortBtn: "total_over_0_5",
+        descr: "",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "total_over_1_5",
+        descr: "",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "total_over_2_5",
+        descr: "",
+      },
+    ],
+  },
+  individ_total: {
+    match: [
+      {
+        btn: "M",
+        sortBtn: "in_total_count",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "in_total_under_0_5",
+        descr: "Win",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "in_total_under_1_5",
+        descr: "Draw",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "in_total_over_1_5",
+        descr: "Loss",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "in_total_over_2_5",
+        descr: "",
+      },
+    ],
+    first_half: [
+      {
+        btn: "M",
+        sortBtn: "in_total_count",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "in_total_under_0_5",
+        descr: "Win",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "in_total_under_1_5",
+        descr: "Draw",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "in_total_over_1_5",
+        descr: "Loss",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "in_total_over_2_5",
+        descr: "",
+      },
+    ],
+    second_half: [
+      {
+        btn: "M",
+        sortBtn: "in_total_count",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "in_total_under_0_5",
+        descr: "Win",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "in_total_under_1_5",
+        descr: "Draw",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "in_total_over_1_5",
+        descr: "Loss",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "in_total_over_2_5",
+        descr: "",
+      },
+    ],
+  },
+  both_score: {
+    match: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "Yes",
+        sortBtn: "bs_yes",
+        descr: "",
+      },
+      {
+        btn: "No",
+        sortBtn: "bs_no",
+        descr: "",
+      },
+      {
+        btn: "W+BS",
+        sortBtn: "bs_win",
+        descr: "",
+      },
+      {
+        btn: "D+BS",
+        sortBtn: "bs_draw",
+        descr: "",
+      },
+      {
+        btn: "L+BS",
+        sortBtn: "bs_lose",
+        descr: "",
+      },
+    ],
+    first_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "Yes",
+        sortBtn: "bs_yes",
+        descr: "",
+      },
+      {
+        btn: "No",
+        sortBtn: "bs_no",
+        descr: "",
+      },
+      {
+        btn: "W+BS",
+        sortBtn: "bs_win",
+        descr: "",
+      },
+      {
+        btn: "D+BS",
+        sortBtn: "bs_draw",
+        descr: "",
+      },
+      {
+        btn: "L+BS",
+        sortBtn: "bs_lose",
+        descr: "",
+      },
+    ],
+    second_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "Yes",
+        sortBtn: "bs_yes",
+        descr: "",
+      },
+      {
+        btn: "No",
+        sortBtn: "bs_no",
+        descr: "",
+      },
+      {
+        btn: "W+BS",
+        sortBtn: "bs_win",
+        descr: "",
+      },
+      {
+        btn: "D+BS",
+        sortBtn: "bs_draw",
+        descr: "",
+      },
+      {
+        btn: "L+BS",
+        sortBtn: "bs_lose",
+        descr: "",
+      },
+    ],
+  },
+  productive_half: {
+    match: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "1over2",
+        sortBtn: "first_over_second",
+        descr: "",
+      },
+      {
+        btn: "1equal2",
+        sortBtn: "first_equal_second",
+        descr: "",
+      },
+      {
+        btn: "2over1",
+        sortBtn: "second_over_first",
+        descr: "",
+      },
+    ],
+    first_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "1over2",
+        sortBtn: "first_over_second",
+        descr: "",
+      },
+      {
+        btn: "1equal2",
+        sortBtn: "first_equal_second",
+        descr: "",
+      },
+      {
+        btn: "2over1",
+        sortBtn: "second_over_first",
+        descr: "",
+      },
+    ],
+    second_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "1over2",
+        sortBtn: "first_over_second",
+        descr: "",
+      },
+      {
+        btn: "1equal2",
+        sortBtn: "first_equal_second",
+        descr: "",
+      },
+      {
+        btn: "2over1",
+        sortBtn: "second_over_first",
+        descr: "",
+      },
+    ],
+  },
+  individ_productive_half: {
+    match: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "1over2",
+        sortBtn: "first_over_second",
+        descr: "",
+      },
+      {
+        btn: "1equal2",
+        sortBtn: "first_equal_second",
+        descr: "",
+      },
+      {
+        btn: "2over1",
+        sortBtn: "second_over_first",
+        descr: "",
+      },
+    ],
+    first_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "1over2",
+        sortBtn: "first_over_second",
+        descr: "",
+      },
+      {
+        btn: "1equal2",
+        sortBtn: "first_equal_second",
+        descr: "",
+      },
+      {
+        btn: "2over1",
+        sortBtn: "second_over_first",
+        descr: "",
+      },
+    ],
+    second_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "1over2",
+        sortBtn: "first_over_second",
+        descr: "",
+      },
+      {
+        btn: "1equal2",
+        sortBtn: "first_equal_second",
+        descr: "",
+      },
+      {
+        btn: "2over1",
+        sortBtn: "second_over_first",
+        descr: "",
+      },
+    ],
+  },
 };

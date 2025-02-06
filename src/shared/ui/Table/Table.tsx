@@ -64,7 +64,7 @@ const Table = memo((props: TableProps) => {
                 >
                   {item.btn}
                 </Button>
-                <div className={styles.btnPopup}>{item.descr}</div>
+                {/* <div className={styles.btnPopup}>{item.descr}</div> */}
               </div>
             </th>
           ))}

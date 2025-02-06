@@ -61,19 +61,28 @@ export const DetailedStatsPage = ({
         second_half: "2nd Half",
       };
 
-      timeArr.forEach((time) => {
+      for (let i = 0; i < timeArr.length; i++) {
+        const half = timeArr[i];
+        if (
+          (variant === "productive_half" ||
+            variant === "individ_productive_half") &&
+          (half === "first_half" || half === "second_half")
+        ) {
+          continue;
+        }
+
         res.push({
-          title: mapToTitle[time],
+          title: mapToTitle[half],
           content: (
             <StandingTable
               league={league}
               matchType={matchType}
               variant={variant}
-              time={time}
+              time={half}
             />
           ),
         });
-      });
+      }
 
       return res;
     },
@@ -288,6 +297,277 @@ export const DetailedStatsPage = ({
 
             <Tabs
               items={generateTables(league, "away", "individ_yellow_cards", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+          </>
+        ),
+      },
+      {
+        title: "Total Goals",
+        image: "/total.png",
+        content: (
+          <>
+            <Tabs
+              items={generateTables(league, "summary", "total", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+            <div>Description for table...</div>
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table of
+              total goals"
+            />
+
+            <Tabs
+              items={generateTables(league, "home", "total", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table of
+              total goals"
+            />
+
+            <Tabs
+              items={generateTables(league, "away", "total", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+          </>
+        ),
+      },
+      {
+        title: "Individual Goal Totals",
+        image: "/individ_total.png",
+        content: (
+          <>
+            <Tabs
+              items={generateTables(league, "summary", "individ_total", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+            <div>Description for table...</div>
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table of
+              both teams to score"
+            />
+
+            <Tabs
+              items={generateTables(league, "home", "individ_total", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table of
+              both teams to score"
+            />
+
+            <Tabs
+              items={generateTables(league, "away", "individ_total", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+          </>
+        ),
+      },
+      {
+        title: "BTTS",
+        image: "/both_score.png",
+        content: (
+          <>
+            <Tabs
+              items={generateTables(league, "summary", "both_score", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+            <div>Description for table...</div>
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table of
+              both teams to score"
+            />
+
+            <Tabs
+              items={generateTables(league, "home", "both_score", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table of
+              both teams to score"
+            />
+
+            <Tabs
+              items={generateTables(league, "away", "both_score", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+          </>
+        ),
+      },
+      {
+        title: "Productive Half",
+        image: "/productive_half.png",
+        content: (
+          <>
+            <Tabs
+              items={generateTables(league, "summary", "productive_half", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+            <div>Description for table...</div>
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table Of
+              Both Teams To Score"
+            />
+
+            <Tabs
+              items={generateTables(league, "home", "productive_half", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table Of
+              Both Teams To Score"
+            />
+
+            <Tabs
+              items={generateTables(league, "away", "productive_half", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+          </>
+        ),
+      },
+      {
+        title: "Individual Productive Half",
+        image: "/individ_productive_half.png",
+        content: (
+          <>
+            <Tabs
+              items={generateTables(
+                league,
+                "summary",
+                "individ_productive_half",
+                ["match", "first_half", "second_half"],
+              )}
+              overflow="auto"
+              minWidth={500}
+            />
+            <div>Description for table...</div>
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table of
+              Individual Productive Half"
+            />
+
+            <Tabs
+              items={generateTables(league, "home", "individ_productive_half", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table of
+              Individual Productive Half"
+            />
+
+            <Tabs
+              items={generateTables(league, "away", "individ_productive_half", [
                 "match",
                 "first_half",
                 "second_half",

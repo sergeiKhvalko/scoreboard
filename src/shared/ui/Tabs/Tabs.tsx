@@ -57,7 +57,11 @@ const Tabs = memo(
       <TabGroup className={cn(styles.tabs, className)}>
         {({ selectedIndex }) => (
           <div>
-            <TabList className={styles.tabList}>
+            <TabList
+              className={cn(styles.tabList, {
+                [styles.tabListStat]: items[0].image,
+              })}
+            >
               {items.map((item) => (
                 <Tab
                   key={item.title}

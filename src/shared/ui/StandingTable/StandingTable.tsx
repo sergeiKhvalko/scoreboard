@@ -12,7 +12,12 @@ export type TableVariantsProps =
   | "corners"
   | "individ_corners"
   | "yellow_cards"
-  | "individ_yellow_cards";
+  | "individ_yellow_cards"
+  | "total"
+  | "individ_total"
+  | "both_score"
+  | "productive_half"
+  | "individ_productive_half";
 export type MatchTimeProps = "match" | "first_half" | "second_half";
 interface TableProps {
   league: League;
@@ -105,6 +110,31 @@ const StandingTable = memo(
         match: "yellow_count",
         first_half: "yellow_count",
         second_half: "yellow_count",
+      },
+      total: {
+        match: "total_over_2_5",
+        first_half: "total_over_1_5",
+        second_half: "total_over_1_5",
+      },
+      individ_total: {
+        match: "in_total_over_1_5",
+        first_half: "in_total_over_1_5",
+        second_half: "in_total_over_1_5",
+      },
+      both_score: {
+        match: "bs_yes",
+        first_half: "bs_yes",
+        second_half: "bs_yes",
+      },
+      productive_half: {
+        match: "first_over_second",
+        first_half: "first_over_second",
+        second_half: "first_over_second",
+      },
+      individ_productive_half: {
+        match: "first_over_second",
+        first_half: "first_over_second",
+        second_half: "first_over_second",
       },
     };
 

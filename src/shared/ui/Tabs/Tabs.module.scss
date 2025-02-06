@@ -14,6 +14,12 @@
   margin-bottom: 20px;
 }
 
+.tabListStat {
+  @media screen and (min-width: 680px) {
+    grid-auto-columns: 20%;
+  }
+}
+
 .tab {
   padding: 20px 0;
   width: 100%;
