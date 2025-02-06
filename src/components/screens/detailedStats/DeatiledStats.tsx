@@ -190,28 +190,114 @@ export const DetailedStatsPage = ({
           </>
         ),
       },
-      // {
-      //   title: "Yellow Cards",
-      //   image: "/yellow_cards.png",
-      //   content: (
-      //     <Tabs
-      //       items={corners}
-      //       overflow="auto"
-      //       minWidth={500}
-      //     />
-      //   ),
-      // },
-      // {
-      //   title: "Yellow Cards Individual",
-      //   image: "/individ_yellow_cards.png",
-      //   content: (
-      //     <Tabs
-      //       items={corners}
-      //       overflow="auto"
-      //       minWidth={500}
-      //     />
-      //   ),
-      // },
+      {
+        title: "Yellow Cards",
+        image: "/yellow_cards.png",
+        content: (
+          <>
+            <Tabs
+              items={generateTables(league, "summary", "yellow_cards", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+            <div>Description for table...</div>
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table of
+              yellow cards total"
+            />
+
+            <Tabs
+              items={generateTables(league, "home", "yellow_cards", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table of
+              yellow cards total"
+            />
+
+            <Tabs
+              items={generateTables(league, "away", "yellow_cards", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+          </>
+        ),
+      },
+      {
+        title: "Yellow Cards Individual",
+        image: "/individ_yellow_cards.png",
+        content: (
+          <>
+            <Tabs
+              items={generateTables(league, "summary", "individ_yellow_cards", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+            <div>Description for table...</div>
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Home"
+              descr="Table of
+              individual yellow cards"
+            />
+
+            <Tabs
+              items={generateTables(league, "home", "individ_yellow_cards", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+
+            <TableHeader
+              league={league}
+              season={season}
+              title="Away"
+              descr="Table of
+              individual yellow cards"
+            />
+
+            <Tabs
+              items={generateTables(league, "away", "individ_yellow_cards", [
+                "match",
+                "first_half",
+                "second_half",
+              ])}
+              overflow="auto"
+              minWidth={500}
+            />
+          </>
+        ),
+      },
     ],
     [league, season, generateTables],
   );

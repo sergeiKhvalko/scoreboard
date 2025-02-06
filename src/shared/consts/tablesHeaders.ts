@@ -565,4 +565,127 @@ export const tableHeaders = {
       },
     ],
   },
+  individ_yellow_cards: {
+    match: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "All",
+        sortBtn: "yellow_count",
+        descr: "yellow all count",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "yellow_under_0_5",
+        descr: "",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "yellow_under_1_5",
+        descr: "",
+      },
+      {
+        btn: "u2.5",
+        sortBtn: "yellow_under_2_5",
+        descr: "",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "yellow_over_2_5",
+        descr: "",
+      },
+      {
+        btn: "o3.5",
+        sortBtn: "yellow_over_3_5",
+        descr: "",
+      },
+      {
+        btn: "o4.5",
+        sortBtn: "yellow_over_4_5",
+        descr: "",
+      },
+      {
+        btn: "o5.5",
+        sortBtn: "yellow_over_5_5",
+        descr: "",
+      },
+    ],
+    first_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "All",
+        sortBtn: "yellow_count",
+        descr: "yellow all count",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "yellow_under_0_5",
+        descr: "",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "yellow_under_1_5",
+        descr: "",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "yellow_over_1_5",
+        descr: "",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "yellow_over_2_5",
+        descr: "",
+      },
+      {
+        btn: "o3.5",
+        sortBtn: "yellow_over_3_5",
+        descr: "",
+      },
+    ],
+    second_half: [
+      {
+        btn: "M",
+        sortBtn: "matches",
+        descr: "Matches Played this season",
+      },
+      {
+        btn: "All",
+        sortBtn: "yellow_count",
+        descr: "yellow all count",
+      },
+      {
+        btn: "u0.5",
+        sortBtn: "yellow_under_0_5",
+        descr: "",
+      },
+      {
+        btn: "u1.5",
+        sortBtn: "yellow_under_1_5",
+        descr: "",
+      },
+      {
+        btn: "o1.5",
+        sortBtn: "yellow_over_1_5",
+        descr: "",
+      },
+      {
+        btn: "o2.5",
+        sortBtn: "yellow_over_2_5",
+        descr: "",
+      },
+      {
+        btn: "o3.5",
+        sortBtn: "yellow_over_3_5",
+        descr: "",
+      },
+    ],
+  },
 };

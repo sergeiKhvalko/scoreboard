@@ -7,7 +7,12 @@ import { commandZones } from "@/shared/consts/commandZones";
 import { tableHeaders, TableHeadersProps } from "@/shared/consts/tablesHeaders";
 
 export type MatchTypeProps = "summary" | "home" | "away";
-export type TableVariantsProps = "overview" | "corners" | "individ_corners";
+export type TableVariantsProps =
+  | "overview"
+  | "corners"
+  | "individ_corners"
+  | "yellow_cards"
+  | "individ_yellow_cards";
 export type MatchTimeProps = "match" | "first_half" | "second_half";
 interface TableProps {
   league: League;
@@ -90,6 +95,16 @@ const StandingTable = memo(
         match: "corner_count",
         first_half: "corner_over_4_5",
         second_half: "corner_over_4_5",
+      },
+      yellow_cards: {
+        match: "yellow_over_4_5",
+        first_half: "yellow_over_2_5",
+        second_half: "yellow_over_2_5",
+      },
+      individ_yellow_cards: {
+        match: "yellow_count",
+        first_half: "yellow_count",
+        second_half: "yellow_count",
       },
     };
 
