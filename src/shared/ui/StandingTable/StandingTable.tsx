@@ -35,13 +35,11 @@ export interface TeamProps extends Partial<MatchTypes> {
   id: number;
   name: string;
   form: {
-    info?:
-      | Array<{
-          team1: string;
-          team2: string;
-          score: string;
-        }>
-      | string;
+    info?: Array<{
+      team1: string;
+      team2: string;
+      score: string;
+    }>;
     result?: string;
   };
   zone: string;

@@ -4,7 +4,7 @@ import { standingService } from "@/services/standingService";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { season: seasonId, league: leagueId } = await searchParams;
 

@@ -14,7 +14,6 @@ export function useRegisterMutation() {
       values: TypeRegisterSchema;
       // recaptcha: string;
     }) => authService.register(values),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onSuccess(data: any) {
       toastMessageHandler(data);
     },

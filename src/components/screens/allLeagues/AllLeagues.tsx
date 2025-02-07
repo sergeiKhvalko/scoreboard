@@ -17,8 +17,13 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { AnimatePresence, motion, easeOut } from "framer-motion";
+import { LeagueInfo } from "./AllLeagues.props";
 
-export const AllLeaguesPage = ({ allLeagues }) => {
+export const AllLeaguesPage = ({
+  allLeagues,
+}: {
+  allLeagues: LeagueInfo[];
+}) => {
   const breadcrumbs = useMemo(
     () => [
       {

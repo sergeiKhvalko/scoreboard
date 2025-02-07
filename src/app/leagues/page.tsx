@@ -3,7 +3,7 @@ import { AllLeaguesPage } from "@/components/screens/allLeagues/AllLeagues";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { season: seasonId } = await searchParams;
   const urls = [

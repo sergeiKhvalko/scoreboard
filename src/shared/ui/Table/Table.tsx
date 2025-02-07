@@ -131,11 +131,12 @@ const Table = memo((props: TableProps) => {
                       >
                         <span>{f}</span>
                         <div className={styles.formPopup}>
-                          {`${
-                            shortTeamNames[team.form.info.slice(-5)[i].team1]
-                          } ${team.form.info.slice(-5)[i].score} ${
-                            shortTeamNames[team.form.info.slice(-5)[i].team2]
-                          }`}
+                          {team.form.info &&
+                            `${
+                              shortTeamNames[team.form.info.slice(-5)[i].team1]
+                            } ${team.form.info.slice(-5)[i].score} ${
+                              shortTeamNames[team.form.info.slice(-5)[i].team2]
+                            }`}
                         </div>
                       </div>
                     ))}
