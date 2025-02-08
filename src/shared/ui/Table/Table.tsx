@@ -95,7 +95,7 @@ const Table = memo((props: TableProps) => {
             >
               <Link
                 className={styles.teamName}
-                href={`/teams/${team.name}`}
+                href={`/teams/${team.id}`}
               >
                 {shortTeamNames[team.name]}
               </Link>
