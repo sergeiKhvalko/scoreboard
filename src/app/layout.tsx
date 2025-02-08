@@ -155,7 +155,7 @@ const pages = [
       },
       {
         name: "Bundesliga",
-        link: "/leagues/Bundesliga?season=2024&league=78",
+        link: "/leagues/bundesliga?season=2024&league=78",
       },
       {
         name: "2bundesliga",

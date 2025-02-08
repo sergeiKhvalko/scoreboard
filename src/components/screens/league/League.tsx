@@ -37,7 +37,10 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
       {
         title: league.name,
         disabled: true,
-        href: `/${league.name}?season=${season}&league=${leagueId}`,
+        href: `/leagues/${league.name
+          .split(" ")
+          .map((s) => s.toLowerCase())
+          .join("-")}?season=${season}&league=${leagueId}`,
       },
     ],
     [league, season, leagueId],

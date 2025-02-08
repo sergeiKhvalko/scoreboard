@@ -41,7 +41,10 @@ export const DetailedStatsPage = ({
       {
         title: "Detailed Stats",
         disabled: true,
-        href: `/${league.name}/detailed-stats?season=${season}&league=${leagueId}`,
+        href: `/leagues/${league.name
+          .split(" ")
+          .map((s) => s.toLowerCase())
+          .join("-")}/detailed-stats?season=${season}&league=${leagueId}`,
       },
     ],
     [league, season, leagueId],
