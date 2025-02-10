@@ -105,3 +105,13 @@
   background-color: var(--text-color);
   opacity: var(--v-border-opacity);
 }
+
+.loginBtn {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+}

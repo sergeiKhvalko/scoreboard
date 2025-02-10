@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { AllLeaguesPage } from "@/components/screens/allLeagues/AllLeagues";
 
 export default async function Page({
@@ -19,11 +22,36 @@ export default async function Page({
     `${process.env.SERVER_URL}/matchweeks-info?season=${seasonId}&league=94`,
   ];
 
-  const requests = urls.map((url) => fetch(url));
-  const responses = await Promise.all(requests);
-  const allLeagues = (await Promise.all(responses.map((r) => r.json()))).map(
+  const result = [];
+  async function fetcher(urls: string[]) {
+    const requests = urls.map((url) => fetch(url));
+    const resultFilter = (
+      result: PromiseSettledResult<Response>[],
+      error?: boolean,
+    ) =>
+      result
+        .filter((i) => i.status === (!error ? "fulfilled" : "rejected"))
+        .map((r) => (!error ? r.value : r.reason.url));
+
+    const responses = await Promise.allSettled(requests);
+    console.log(responses);
+
+    const fulfilled = resultFilter(responses, false);
+    const rejected = resultFilter(responses, true);
+
+    console.log("fulfilled", fulfilled);
+    console.log("rejected", rejected);
+
+    result.push(...fulfilled);
+    if (rejected.length) await fetcher(rejected);
+  }
+  await fetcher(urls);
+
+  const allLeagues = (await Promise.all(result.map((r) => r.json()))).map(
     (res) => res["response"][0]["league"],
   );
+  // console.log(allLeagues);
 
   return <AllLeaguesPage allLeagues={allLeagues} />;
+  // return <div>All leagues</div>;
 }

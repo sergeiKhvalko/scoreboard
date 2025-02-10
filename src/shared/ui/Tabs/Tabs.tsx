@@ -75,6 +75,7 @@ const Tabs = memo(
                         alt={"stats"}
                         width={50}
                         height={50}
+                        loading="lazy"
                       />
                       {item.title}
                     </div>

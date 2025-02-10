@@ -5,8 +5,10 @@ import cn from "classnames";
 import { LangSelector } from "@/features/langSelector/LangSelector";
 import { memo } from "react";
 import { ThemeSelector } from "@/features/themeSelector/ThemeSelector";
-import { UserProfile } from "@/features/userProfile/UserProfile";
+// import { UserProfile } from "@/features/userProfile/UserProfile";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
+// import { NotificationButton } from "@/features/notificationButton/NotificationButton";
+import { AppLink } from "@/shared/ui/AppLink";
 
 export interface NavProps {
   title: string;
@@ -18,6 +20,9 @@ export interface NavProps {
 }
 
 const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
+  // const authData = useSelector(getUserAuthData)
+  const authData = false;
+
   return (
     <header className={styles.navbar}>
       <Link
@@ -110,7 +115,24 @@ const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
         color="grey-darken-2"
         variant="menu"
       /> */}
-      <UserProfile />
+      {/* <UserProfile /> */}
+      {authData ? (
+        <HStack
+          gap="16"
+          className={styles.actions}
+        >
+          <div></div>
+          {/* <NotificationButton /> */}
+          {/* <AvatarDropdown /> */}
+        </HStack>
+      ) : (
+        <AppLink
+          href={"/auth/login"}
+          className={styles.loginBtn}
+        >
+          {"Log in"}
+        </AppLink>
+      )}
     </header>
   );
 });

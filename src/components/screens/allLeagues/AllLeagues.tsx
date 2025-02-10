@@ -61,6 +61,7 @@ export const AllLeaguesPage = ({
                 alt={league.name}
                 width={90}
                 height={90}
+                loading="lazy"
               />
             </div>
             <div className={styles.leagueDescr}>
@@ -80,6 +81,7 @@ export const AllLeaguesPage = ({
                   alt={league.country}
                   width={30}
                   height={30}
+                  loading="lazy"
                 />
                 <span>{league.country}</span>
               </div>
