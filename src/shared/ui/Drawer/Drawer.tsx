@@ -22,8 +22,8 @@ interface DrawerProps {
   lazy?: boolean;
 }
 
-// const height = window.innerHeight - 100;
-const height = 100;
+let height = 100;
+// const height = 100;
 
 const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
@@ -35,6 +35,10 @@ const DrawerContent = memo((props: DrawerProps) => {
   const openDrawer = useCallback(() => {
     api.start({ y: 0, immediate: false });
   }, [api]);
+
+  useEffect(() => {
+    height = window.innerHeight - 100;
+  }, []);
 
   useEffect(() => {
     if (isOpen) {

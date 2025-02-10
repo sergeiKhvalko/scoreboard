@@ -53,8 +53,6 @@ export default async function Page({
   const allLeagues = (await Promise.all(result.map((r) => r.json()))).map(
     (res) => res["response"][0]["league"],
   );
-  // console.log(allLeagues);
 
   return <AllLeaguesPage allLeagues={allLeagues} />;
-  // return <div>All leagues</div>;
 }

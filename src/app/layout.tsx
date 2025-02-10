@@ -32,6 +32,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
+        suppressHydrationWarning
         className={cn(
           `${geistSans.variable} ${geistMono.variable}`,
           "app_dark_theme",

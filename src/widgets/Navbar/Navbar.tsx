@@ -7,7 +7,7 @@ import { memo } from "react";
 import { ThemeSelector } from "@/features/themeSelector/ThemeSelector";
 // import { UserProfile } from "@/features/userProfile/UserProfile";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
-// import { NotificationButton } from "@/features/notificationButton/NotificationButton";
+import { NotificationButton } from "@/features/notificationButton/NotificationButton";
 import { AppLink } from "@/shared/ui/AppLink";
 
 export interface NavProps {
@@ -21,7 +21,7 @@ export interface NavProps {
 
 const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
   // const authData = useSelector(getUserAuthData)
-  const authData = false;
+  const authData = true;
 
   return (
     <header className={styles.navbar}>
@@ -121,8 +121,7 @@ const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
           gap="16"
           className={styles.actions}
         >
-          <div></div>
-          {/* <NotificationButton /> */}
+          <NotificationButton />
           {/* <AvatarDropdown /> */}
         </HStack>
       ) : (
