@@ -23,15 +23,16 @@ export default async function Page({
   ];
 
   const result = [];
-  async function fetcher(urls: string[]) {
+  async function fetcher(urls: string[], retry: number) {
+    if (retry === 0) return;
     const requests = urls.map((url) => fetch(url));
     const resultFilter = (
       result: PromiseSettledResult<Response>[],
       error?: boolean,
     ) =>
       result
-        .filter((i) => i.status === (!error ? "fulfilled" : "rejected"))
-        .map((r) => (!error ? r.value : r.reason.url));
+        .filter((i) => i.value.ok === (!error ? true : false))
+        .map((r) => (!error ? r.value : r.value.url));
 
     const responses = await Promise.allSettled(requests);
     console.log(responses);
@@ -43,9 +44,11 @@ export default async function Page({
     console.log("rejected", rejected);
 
     result.push(...fulfilled);
-    if (rejected.length) await fetcher(rejected);
+    if (rejected.length) await fetcher(rejected, retry - 1);
   }
-  await fetcher(urls);
+  await fetcher(urls, 5);
+
+  if (result.length === 0) return <div>No data</div>;
 
   const allLeagues = (await Promise.all(result.map((r) => r.json()))).map(
     (res) => res["response"][0]["league"],
