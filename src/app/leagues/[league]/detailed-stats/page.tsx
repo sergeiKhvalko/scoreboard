@@ -1,4 +1,4 @@
-import { DetailedStatsPage } from "@/components/screens/detailedStats/DeatiledStats";
+import { DetailedStatsPage } from "@/components/screens/detailedStatsPage/DeatiledStatsPage";
 import { standingService } from "@/services/standingService";
 
 export default async function Page({

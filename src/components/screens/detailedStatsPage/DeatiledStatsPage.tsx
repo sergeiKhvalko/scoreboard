@@ -2,8 +2,9 @@ import { LeagueDetails } from "@/components/ui/leagueDetails";
 import { LeagueTitle } from "@/components/ui/leagueTitle";
 import { Breadcrumbs } from "@/shared/ui/Breadcrumbs/Breadcrumbs";
 import { useCallback, useMemo } from "react";
-import { LeagueProps, TableMatchesProps } from "../league/League";
-import styles from "./DetailedStats.module.scss";
+import { LeagueProps, TableMatchesProps } from "../leaguePage/LeaguePage";
+// import styles from "./DetailedStatsPage.module.scss";
+import comCls from "../common.module.scss";
 import { Tabs } from "@/shared/ui/Tabs";
 import { StandingTable } from "@/shared/ui/StandingTable";
 import { League } from "@/types/type";
@@ -595,9 +596,9 @@ export const DetailedStatsPage = ({
         descr="Detailed Stats"
       />
 
-      <div className={styles.wrapper}>
+      <div className={comCls.wrapper}>
         <LeagueDetails league={league} />
-        <div className={styles.stats}>stats</div>
+        <div className={comCls.fixtures}>fixtures</div>
       </div>
 
       <TableHeader

@@ -80,7 +80,7 @@ export const LeagueDetails = ({ league }: { league: League }) => {
         </Link>
         <Link
           className={cn({ [styles.active]: currenTab === "team-forms" })}
-          href={`/leagues/${leagueName}/team-forms?league=${league.id}`}
+          href={`/leagues/${leagueName}/team-forms?season=${league.season}&league=${league.id}`}
         >
           Team Forms
         </Link>

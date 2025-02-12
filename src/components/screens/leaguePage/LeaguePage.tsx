@@ -1,5 +1,6 @@
 import { Breadcrumbs } from "@/shared/ui/Breadcrumbs/Breadcrumbs";
-import styles from "./League.module.scss";
+import styles from "./LeaguePage.module.scss";
+import comCls from "../common.module.scss";
 import { League } from "@/types/type";
 
 import { LeagueDetails } from "@/components/ui/leagueDetails";
@@ -176,9 +177,9 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         descr="Table & Stats"
       />
 
-      <div className={styles.wrapper}>
+      <div className={comCls.wrapper}>
         <LeagueDetails league={league} />
-        <div className={styles.fixtures}>fixtures</div>
+        <div className={comCls.fixtures}>fixtures</div>
       </div>
 
       <TableHeader

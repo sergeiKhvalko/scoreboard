@@ -1,4 +1,4 @@
-import { LeaguePage } from "@/components/screens/league/League";
+import { LeaguePage } from "@/components/screens/leaguePage/LeaguePage";
 import { standingService } from "@/services/standingService";
 
 export default async function Page({

@@ -21,7 +21,7 @@ export interface NavProps {
 
 const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
   // const authData = useSelector(getUserAuthData)
-  const authData = true;
+  const authData = false;
 
   return (
     <header className={styles.navbar}>
