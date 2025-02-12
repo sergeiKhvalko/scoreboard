@@ -1,0 +1,139 @@
+.pageLoader {
+	display: grid;
+	place-items: center;
+
+	height: calc(100vh - var(--navbar-height));
+}
+
+.uiPreloaderDefault[data-v-5f80b8f6] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	min-height: 2em;
+}
+
+.totoFrameLoader {
+	flex-grow: 1;
+
+	height: 100vh;
+}
+
+.uiPreloaderDefaultSize[data-v-5f80b8f6] {
+	--bar-thickness: 0.5em;
+	--bar-height-max: 2.5em;
+	--bar-height-mid: 1em;
+	--bar-margin: 0.25em;
+	--bar-border-radius: 0.25em;
+}
+
+
+.uiPreloaderDefaultBar[data-v-5f80b8f6] {
+	width: var(--bar-thickness);
+	height: var(--bar-thickness);
+	margin-right: var(--bar-margin);
+	margin-left: var(--bar-margin);
+
+	background-color: var(--primary-color);
+	border-radius: var(--bar-border-radius);
+
+	animation: preloader-bar-data-v-5f80b8f6 1.5s linear infinite;
+
+	&:nth-child(1) {
+		animation-delay: .3s;
+	}
+
+	&:nth-child(2) {
+		animation-name: preloader-bar-2-data-v-5f80b8f6;
+		animation-delay: .2s;
+	}
+
+	&:nth-child(3) {
+		animation-delay: .5s;
+	}
+
+	&:nth-child(4) {
+		animation-name: preloader-bar-2-data-v-5f80b8f6;
+		animation-delay: .4s;
+	}
+
+	&:nth-child(5) {
+		animation-delay: .7s;
+	}
+}
+
+@keyframes preloader-bar-data-v-5f80b8f6 {
+
+	0%,
+	100% {
+		height: var(--bar-thickness);
+
+		opacity: .5;
+	}
+
+	15% {
+		transform: translateY(0);
+
+		height: var(--bar-height-mid);
+
+		opacity: 1;
+	}
+
+	30% {
+		height: var(--bar-height-mid);
+	}
+
+	45% {
+		transform: translateY(calc(var(--bar-height-mid) * (-1)));
+
+		height: var(--bar-thickness);
+
+		opacity: 1;
+	}
+
+	60% {
+		opacity: .5;
+	}
+
+	75% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes preloader-bar-2-data-v-5f80b8f6 {
+
+	0%,
+	100% {
+		height: var(--bar-thickness);
+
+		opacity: .5;
+	}
+
+	15% {
+		transform: translateY(0);
+
+		height: var(--bar-height-max);
+
+		opacity: 1;
+	}
+
+	30% {
+		height: var(--bar-height-max);
+	}
+
+	45% {
+		transform: translateY(calc(var(--bar-height-mid) * (-1)));
+
+		height: var(--bar-thickness);
+
+		opacity: 1;
+	}
+
+	60% {
+		opacity: .5;
+	}
+
+	75% {
+		transform: translateY(0);
+	}
+}

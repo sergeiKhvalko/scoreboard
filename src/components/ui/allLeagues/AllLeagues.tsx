@@ -19,11 +19,7 @@ import {
 import { AnimatePresence, motion, easeOut } from "framer-motion";
 import { LeagueInfo } from "./AllLeagues.props";
 
-export const AllLeaguesPage = ({
-  allLeagues,
-}: {
-  allLeagues: LeagueInfo[];
-}) => {
+export const AllLeagues = ({ allLeagues }: { allLeagues: LeagueInfo[] }) => {
   const breadcrumbs = useMemo(
     () => [
       {
