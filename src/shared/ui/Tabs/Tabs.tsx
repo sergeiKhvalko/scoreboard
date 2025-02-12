@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import styles from "./Tabs.module.scss";
-import { TableMatchesProps } from "@/components/screens/detailedStatsPage/leaguePage/LeaguePage";
+import { TableMatchesProps } from "@/components/screens/leaguePage/LeaguePage";
 import { memo, useRef } from "react";
 import cn from "classnames";
 import Image from "next/image";
