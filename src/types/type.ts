@@ -13,6 +13,7 @@ export interface League {
     total: number;
     draw: number;
     favoriteLost: number;
+    favoriteWin: number;
   };
   standings: oneTeam[];
 }
