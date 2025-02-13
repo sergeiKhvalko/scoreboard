@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Football Statistics App",
   description: "Corners, Yellow Cards",
+  other: {
+    ["yandex-verification"]: "2c7499e98291f57a",
+  },
 };
 
 export default function RootLayout({

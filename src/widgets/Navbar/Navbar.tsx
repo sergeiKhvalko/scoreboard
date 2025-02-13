@@ -9,6 +9,7 @@ import { ThemeSelector } from "@/features/themeSelector/ThemeSelector";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { NotificationButton } from "@/features/notificationButton/NotificationButton";
 import { AppLink } from "@/shared/ui/AppLink";
+import { AvatarDropdown } from "@/features/avatarDropdown/AvatarDropdown";
 
 export interface NavProps {
   title: string;
@@ -21,7 +22,7 @@ export interface NavProps {
 
 const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
   // const authData = useSelector(getUserAuthData)
-  const authData = false;
+  const authData = true;
 
   return (
     <header className={styles.navbar}>
@@ -122,7 +123,7 @@ const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
           className={styles.actions}
         >
           <NotificationButton />
-          {/* <AvatarDropdown /> */}
+          <AvatarDropdown />
         </HStack>
       ) : (
         <AppLink
