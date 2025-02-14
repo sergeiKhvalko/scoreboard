@@ -5,6 +5,7 @@ import { Navbar } from "@/widgets/Navbar";
 import cn from "classnames";
 import { BottomNav } from "@/shared/ui/BottomNav/BottomNav";
 import { MainProvider } from "@/shared/providers";
+import { YandexMetrica } from "./yandex-metrica";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
           "app_dark_theme",
         )}
       >
+        <YandexMetrica />
         <MainProvider>
           <div
             id="app"
