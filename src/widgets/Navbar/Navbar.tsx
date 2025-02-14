@@ -112,11 +112,6 @@ const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
       <LangSelector />
       <ThemeSelector />
 
-      {/* <ThemeSelector
-        color="grey-darken-2"
-        variant="menu"
-      /> */}
-      {/* <UserProfile /> */}
       {authData ? (
         <HStack
           gap="16"

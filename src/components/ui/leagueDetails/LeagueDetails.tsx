@@ -5,11 +5,14 @@ import styles from "./LeagueDetails.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import cn from "classnames";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { getCompletedProgress } from "@/shared/utils/helpers";
+import { SeasonSelector } from "@/features/seasonSelector/SeasonSelector";
 
 export const LeagueDetails = ({ league }: { league: League }) => {
   const pathname = usePathname().split("/");
+  const searchParams = useSearchParams();
+  const season = searchParams.get("season");
   const leagueName = league.name.toLocaleLowerCase().replace(" ", "-");
   const currenTab = pathname[pathname.length - 1];
 
@@ -30,16 +33,15 @@ export const LeagueDetails = ({ league }: { league: League }) => {
           <div className={styles.headlines}>
             <div>Nation</div>
             <div>Teams</div>
-            <div className="">Season</div>
-            <div>Matches</div>
+            <div style={{ marginTop: "8px" }}>Season</div>
+            <div style={{ marginTop: "12px" }}>Matches</div>
             <div style={{ marginTop: "5px" }}>Progress</div>
           </div>
           <div className={styles.headlines}>
             <div className="bold">{league.country}</div>
             <div className="bold">{league.standings.length}</div>
-            <div>
-              <select></select>
-            </div>
+
+            <SeasonSelector currentSeason={season} />
             <div>
               <span className="bold">
                 {league.allMatches.total}/
@@ -74,13 +76,13 @@ export const LeagueDetails = ({ league }: { league: League }) => {
             [styles.active]:
               currenTab !== "team-forms" && currenTab !== "detailed-stats",
           })}
-          href={`/leagues/${leagueName}?season=${league.season}&league=${league.id}`}
+          href={`/leagues/${leagueName}?season=${season}&league=${league.id}`}
         >
           Overviev
         </Link>
         <Link
           className={cn({ [styles.active]: currenTab === "team-forms" })}
-          href={`/leagues/${leagueName}/team-forms?season=${league.season}&league=${league.id}`}
+          href={`/leagues/${leagueName}/team-forms?season=${season}&league=${league.id}`}
         >
           Team Forms
         </Link>
@@ -88,7 +90,7 @@ export const LeagueDetails = ({ league }: { league: League }) => {
           className={cn({
             [styles.active]: currenTab === "detailed-stats",
           })}
-          href={`/leagues/${leagueName}/detailed-stats?season=${league.season}&league=${league.id}`}
+          href={`/leagues/${leagueName}/detailed-stats?season=${season}&league=${league.id}`}
         >
           Detailed Stats
         </Link>

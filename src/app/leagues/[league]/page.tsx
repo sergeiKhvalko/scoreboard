@@ -13,7 +13,8 @@ export default async function Page({
   }
 
   const league = await standingService.getStandings(leagueId, seasonId);
-  if (!league) return null;
+  if (!league)
+    return <div>An unexpected error occurred, please reload the page</div>;
 
   return (
     <LeaguePage

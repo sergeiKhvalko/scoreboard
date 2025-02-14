@@ -52,17 +52,17 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     //       ]
     //     : []),
     {
-      content: "Настройки",
+      content: "Settings",
       // href: getRouteSettings(),
       href: "",
     },
     {
-      content: "Профиль",
+      content: "Profile",
       // href: getRouteProfile(authData.id),
       href: "",
     },
     {
-      content: "Выйти",
+      content: "Logout",
       onClick: onLogout,
     },
   ];
@@ -74,7 +74,7 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
       items={items}
       trigger={
         <Avatar
-          size={40}
+          size={30}
           src={authData.avatar}
         />
       }
