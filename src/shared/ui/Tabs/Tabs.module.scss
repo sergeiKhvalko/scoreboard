@@ -34,7 +34,7 @@
   }
 
   &[data-selected] {
-    background-color: rgba(249, 249, 249, 0.05);
+    background-color: var(--button-active);
   }
 }
 

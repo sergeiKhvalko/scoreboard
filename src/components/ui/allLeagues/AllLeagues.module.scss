@@ -68,7 +68,7 @@
   border-radius: var(--border-radius);
 
   &:hover {
-    background-color: var(--button-hover);
+    background-color: var(--card-hover);
   }
 }
 
@@ -98,7 +98,7 @@
 .chip {
   padding: 6px;
   margin-bottom: 10px;
-  background-color: #313e61;
+  background-color: var(--chip-bg);
   border-radius: 9999px;
   color: var(--accent-color);
 
@@ -127,11 +127,12 @@
   margin-top: 10px;
   padding: 3px;
   border: 3px solid var(--border-color);
+  border-radius: var(--border-radius);
 }
 
 .progressLine {
   height: 25px;
-  background-color: yellow;
+  background-color: var(--yellow-color);
 }
 
 .progressInfo {
@@ -165,7 +166,7 @@
   }
 
   &:hover {
-    background-color: var(--button-hover);
+    background-color: var(--card-hover);
   }
 }
 
@@ -187,7 +188,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--button-hover);
+    background-color: var(--card-hover);
   }
 
   span {

@@ -37,11 +37,12 @@
   margin-bottom: 8px;
   padding: 3px;
   border: 3px solid var(--border-color);
+  border-radius: var(--border-radius);
 }
 
 .progressLine {
   height: 15px;
-  background-color: yellow;
+  background-color: #ffff0e;
 }
 
 .actions {

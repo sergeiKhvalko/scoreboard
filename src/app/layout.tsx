@@ -37,10 +37,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className={cn(
-          `${geistSans.variable} ${geistMono.variable}`,
-          "app_dark_theme",
-        )}
+        className={cn(`${geistSans.variable} ${geistMono.variable}`)}
       >
         <YandexMetrica />
         <MainProvider>

@@ -23,25 +23,25 @@
 
 .zone1 {
   .zoneBg {
-    background-color: #418225;
+    background-color: var(--green-zone1);
   }
 }
 
 .zone2 {
   .zoneBg {
-    background-color: #184718;
+    background-color: var(--green-zone2);
   }
 }
 
 .zone3 {
   .zoneBg {
-    background-color: #c59a30;
+    background-color: var(--yellow-bg);
   }
 }
 
 .zone4 {
   .zoneBg {
-    background-color: #a12c2c;
+    background-color: var(--red-zone);
   }
 }
 

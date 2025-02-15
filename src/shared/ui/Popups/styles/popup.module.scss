@@ -3,8 +3,8 @@
 }
 
 .menu {
-  border-radius: 18px;
-  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
   overflow: hidden;
 }
 

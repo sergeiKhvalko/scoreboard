@@ -1,16 +1,53 @@
-import { Button } from "@/shared/ui/Button";
-import { memo } from "react";
+"use client";
+
+import { memo, useEffect, useState } from "react";
 import styles from "./ThemeSelector.module.scss";
 import cn from "classnames";
+import { Dropdown } from "@/shared/ui/Popups";
+import { useTheme } from "next-themes";
 
-const ThemeSelector = memo(() => {
+interface ThemeSelectorProps {
+  className?: string;
+}
+
+const ThemeSelector = memo(({ className }: ThemeSelectorProps) => {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  const items = [
+    {
+      content: "System",
+      onClick: () => setTheme("system"),
+    },
+    {
+      content: "Light",
+      onClick: () => setTheme("light"),
+    },
+    {
+      content: "Dark",
+      onClick: () => setTheme("dark"),
+    },
+  ];
   return (
-    <Button
-      variant="icon"
-      className={styles.themeSelector}
-    >
-      <span className={cn("mdi", "mdi-theme-light-dark")}></span>
-    </Button>
+    <Dropdown
+      direction="bottom left"
+      className={cn("", {}, [className])}
+      items={items}
+      trigger={
+        <span
+          className={cn("mdi", "mdi-theme-light-dark", styles.themeSelector)}
+        ></span>
+      }
+    />
   );
 });
 

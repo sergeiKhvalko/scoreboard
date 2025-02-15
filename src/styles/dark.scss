@@ -1,4 +1,4 @@
-.app_dark_theme {
+.dark {
   --primary-color: #04ff04;
   --secondary-color: #049604;
   --inverted-primary-color: #0232c2;
@@ -14,15 +14,28 @@
   --save-color: #6cd98b;
   --icon-color: #74a2b2;
   --accent-color: #69F0AE;
+  --yellow-color: #ffff0e;
+
 
   --greenFormTable: #759667;
   --redFormTable: #a12c2c;
+
+  --light-green: #6af92d;
+  --green-zone1: #418225;
+  --green-zone2: #184718;
+  --yellow-bg: #cd8c27;
+  --red-zone: #a12c2c;
 
   --border-color: #3e4c71;
   --hover-bg-color: #15264d;
 
   --button-hover: rgba(249, 249, 249, 0.1);
   --button-active: rgba(249, 249, 249, 0.05);
+  --card-hover: var(--button-hover);
+  --chip-bg: #313e61;
+
+  --tr-bg: #192232;
+  --tr-hover: #2a3549;
   // skeleton
   --skeleton-color: #1515ad;
   --skeleton-shadow: #2b2be8;
@@ -35,4 +48,6 @@
 
   // listbox
   --listbox-bg: #0d0d6b;
+
+
 }
