@@ -3,6 +3,7 @@
   grid-template-columns: 1fr;
   padding: 20px 0;
   gap: 30px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: 390px 1fr;

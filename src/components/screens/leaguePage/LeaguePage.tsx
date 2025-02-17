@@ -12,6 +12,12 @@ import { commandZones } from "@/shared/consts/commandZones";
 import { LeagueTitle } from "@/components/ui/leagueTitle";
 import { TableHeader } from "@/shared/ui/TableHeader";
 import PieComponent from "@/shared/ui/Pie/Pie";
+import {
+  getBgForOverviewPie,
+  getFavoritesWinPercentage,
+  getHomeTeamsWinPercentage,
+} from "@/shared/utils";
+import { HStack } from "@/shared/ui/Stack";
 
 export interface LeagueProps {
   league: League;
@@ -168,42 +174,26 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
   const secondTeam = league.standings[1].name;
   const lastTeam = league.standings[league.standings.length - 1].name;
 
-  const labels = ["Favorite Win", "Draw", "Favorite Lose"];
-  const datasets = [
+  const labelsFavoriteWin = ["Favorite Win", "Draw", "Favorite Lose"];
+  const labelsHomeWin = ["Home Team Win", "Draw", "Home Team Lose"];
+
+  const datasetsFavoriteWins = [
     {
       label: "%",
-      data: [
-        Number(
-          (
-            (league.allMatches.favoriteWin / league.allMatches.total) *
-            100
-          ).toFixed(2),
-        ),
-        Number(
-          ((league.allMatches.draw / league.allMatches.total) * 100).toFixed(2),
-        ),
-        Number(
-          (
-            (league.allMatches.favoriteLost / league.allMatches.total) *
-            100
-          ).toFixed(2),
-        ),
-      ],
-      backgroundColor: [
-        "rgba(75, 192, 192, 0.4)",
-        "rgba(255, 206, 86, 0.4)",
-        "rgba(255, 99, 132, 0.4)",
-      ],
-      hoverBackgroundColor: [
-        "rgba(75, 192, 192, 0.6)",
-        "rgba(255, 206, 86, 0.6)",
-        "rgba(255, 99, 132, 0.6)",
-      ],
-      borderColor: [
-        "rgba(75, 192, 192, 1)",
-        "rgba(255, 206, 86, 1)",
-        "rgba(255, 99, 132, 1)",
-      ],
+      data: getFavoritesWinPercentage(league),
+      backgroundColor: getBgForOverviewPie(0.4),
+      hoverBackgroundColor: getBgForOverviewPie(0.6),
+      borderColor: getBgForOverviewPie(1),
+      borderWidth: 1,
+    },
+  ];
+  const datasetsHomeWins = [
+    {
+      label: "%",
+      data: getHomeTeamsWinPercentage(league),
+      backgroundColor: getBgForOverviewPie(0.4),
+      hoverBackgroundColor: getBgForOverviewPie(0.6),
+      borderColor: getBgForOverviewPie(1),
       borderWidth: 1,
     },
   ];
@@ -223,10 +213,21 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         <div className={comCls.fixtures}>fixtures</div>
       </div>
 
-      <PieComponent
-        labels={labels}
-        datasets={datasets}
-      />
+      <HStack
+        wrap="wrap"
+        align="center"
+        justify="center"
+        gap="24"
+      >
+        <PieComponent
+          labels={labelsFavoriteWin}
+          datasets={datasetsFavoriteWins}
+        />
+        <PieComponent
+          labels={labelsHomeWin}
+          datasets={datasetsHomeWins}
+        />
+      </HStack>
 
       <TableHeader
         league={league}

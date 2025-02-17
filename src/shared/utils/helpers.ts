@@ -1,3 +1,5 @@
+import { League } from "@/types/type";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function getCompletedProgress(totalMatches: number, totalTeams: number) {
   return Math.round(
@@ -247,4 +249,49 @@ export function getInfoForAllMatchweeks(matchweeks: any): {
   }
 
   return res;
+}
+
+export function getFavoritesWinPercentage(league: League) {
+  return [
+    Number(
+      ((league.allMatches.favoriteWin / league.allMatches.total) * 100).toFixed(
+        2,
+      ),
+    ),
+    Number(
+      ((league.allMatches.draw / league.allMatches.total) * 100).toFixed(2),
+    ),
+    Number(
+      (
+        (league.allMatches.favoriteLost / league.allMatches.total) *
+        100
+      ).toFixed(2),
+    ),
+  ];
+}
+
+export function getHomeTeamsWinPercentage(league: League) {
+  let homeWins = 0;
+  let Draws = 0;
+  let homeLoses = 0;
+
+  for (const oneTeam of league.standings) {
+    homeWins += oneTeam.matches.home.match.W;
+    Draws += oneTeam.matches.home.match.D;
+    homeLoses += oneTeam.matches.home.match.L;
+  }
+
+  return [
+    Number(((homeWins / league.allMatches.total) * 100).toFixed(2)),
+    Number(((Draws / league.allMatches.total) * 100).toFixed(2)),
+    Number(((homeLoses / league.allMatches.total) * 100).toFixed(2)),
+  ];
+}
+
+export function getBgForOverviewPie(opacity: number) {
+  return [
+    `rgba(75, 192, 192, ${opacity})`,
+    `rgba(255, 206, 86, ${opacity})`,
+    `rgba(255, 99, 132, ${opacity})`,
+  ];
 }
