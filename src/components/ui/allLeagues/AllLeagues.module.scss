@@ -42,6 +42,11 @@
   text-align: center;
 
   img {
+    @media screen and (min-width: 480px) {
+      width: 90px;
+      height: 90px;
+    }
+
     @media screen and (min-width: 960px) {
       width: 150px;
       height: 150px;
@@ -75,9 +80,13 @@
 .country {
   display: grid;
   padding: 0 20px;
-  margin-top: 30px;
+  margin-top: 15px;
   grid-template-columns: 50px 1fr;
   align-items: center;
+
+  @media screen and (min-width: 480px) {
+    margin-top: 30px;
+  }
 }
 
 .stat {
@@ -177,7 +186,7 @@
 
 .disclosureBtn {
   width: 100%;
-  padding: 20px;
+  padding: 5px 20px 5px 20px;
   border: none;
   background-color: transparent;
   display: flex;
@@ -201,6 +210,10 @@
     span {
       transform: rotate(90deg);
     }
+  }
+
+  @media screen and (min-width: 680px) {
+    padding: 20px;
   }
 
 }

@@ -52,12 +52,16 @@
   border-radius: var(--border-radius);
 
   a {
-    padding: 20px 0;
+    padding: 15px 0;
     width: 33.3%;
     text-align: center;
 
     &:hover {
       background-color: var(--button-hover);
+    }
+
+    @media screen and (min-width: 680px) {
+      padding: 20px 0;
     }
   }
 

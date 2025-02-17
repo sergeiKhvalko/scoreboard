@@ -227,9 +227,6 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         labels={labels}
         datasets={datasets}
       />
-      {/* <div style={{ width: 375, height: 300 }}>
-        <PieRechart />
-      </div> */}
 
       <TableHeader
         league={league}
@@ -241,7 +238,7 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         items={TablesAllMatches}
         className="mt-20"
         overflow="auto"
-        minWidth={500}
+        minWidth={450}
       />
 
       <div className={styles.tableResults}>
@@ -316,7 +313,7 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         items={TablesHomeMatches}
         className="mt-20"
         overflow="auto"
-        minWidth={500}
+        minWidth={450}
       />
 
       <TableHeader
@@ -330,7 +327,7 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
         items={TablesAwayMatches}
         className="mt-20"
         overflow="auto"
-        minWidth={500}
+        minWidth={450}
       />
     </div>
   );

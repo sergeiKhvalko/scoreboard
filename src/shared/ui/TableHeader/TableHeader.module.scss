@@ -1,10 +1,16 @@
 .tableTitle {
-  margin: 100px 0 20px 0;
-  padding: 20px 10px;
-  font-size: 20px;
+  margin: 50px 0 20px 0;
+  padding: 15px 10px;
+  font-size: 16px;
   color: var(--text-grey-darken-1);
   background-color: var(--button-active);
   border-radius: var(--border-radius);
+
+  @media screen and (min-width: 480px) {
+    margin: 100px 0 20px 0;
+    padding: 20px 10px;
+    font-size: 20px;
+  }
 }
 
 .homeTable {

@@ -11,7 +11,11 @@
   border-radius: var(--border-radius);
   overflow: auto;
   outline: none;
-  margin-bottom: 20px;
+
+
+  @media screen and (min-width: 680px) {
+    margin-bottom: 20px;
+  }
 }
 
 .tabListStat {
@@ -21,7 +25,7 @@
 }
 
 .tab {
-  padding: 20px 0;
+  padding: 15px 0;
   width: 100%;
   text-align: center;
   background-color: transparent;
@@ -35,6 +39,10 @@
 
   &[data-selected] {
     background-color: var(--button-active);
+  }
+
+  @media screen and (min-width: 680px) {
+    padding: 20px 0;
   }
 }
 

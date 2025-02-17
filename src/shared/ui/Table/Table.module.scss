@@ -39,7 +39,6 @@
     position: absolute;
     right: 25%;
     bottom: 800px;
-    // transform: translateX(-25%);
     padding: 10px 20px;
     background-color: var(--light-bg-color);
     border-color: 1px solid var(--border-color);
@@ -74,7 +73,7 @@
       width: 6%;
       text-align: center;
 
-      padding-right: 5px !important;
+      // padding-right: 5px !important;
       position: sticky;
       left: 0px;
       z-index: 100;
@@ -116,6 +115,7 @@
     th,
     td {
       text-align: center;
+      line-height: 1.2;
     }
 
 
@@ -159,9 +159,13 @@
     padding: 3px;
     border-radius: var(--border-radius);
     margin: 0 1px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
+
+    @media screen and (min-width: 480px) {
+      font-size: 14px;
+    }
 
     @media screen and (min-width: 600px) {
       flex: 0 0 25px;
@@ -216,15 +220,23 @@
   }
 
   .position {
-    padding: 5px 10px !important;
+    padding: 0 10px !important;
+
+    @media screen and (min-width: 480px) {
+      padding: 5px 10px !important;
+    }
   }
 
   .zone {
     width: 100% !important;
     height: 100% !important;
-    padding: 5px;
+    padding: 2px 5px;
     border-radius: var(--border-radius);
     font-weight: bold;
+
+    @media screen and (min-width: 480px) {
+      padding: 5px;
+    }
   }
 
   .zone1 {

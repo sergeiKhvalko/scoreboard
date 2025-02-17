@@ -11,8 +11,9 @@ const LeagueTitle = memo(({ flag, title, descr }: LeagueTitleProps) => {
   return (
     <div className={styles.leagueTitle}>
       <Image //error
-        width={50}
-        height={50}
+        width={30}
+        height={30}
+        className={styles.size}
         src={flag}
         alt="country flag"
         loading="lazy"

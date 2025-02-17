@@ -55,8 +55,8 @@ export const AllLeagues = ({ allLeagues }: { allLeagues: LeagueInfo[] }) => {
               <Image
                 src={league.logo}
                 alt={league.name}
-                width={90}
-                height={90}
+                width={70}
+                height={70}
                 loading="lazy"
               />
             </div>

@@ -323,7 +323,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={400}
             />
             <div>Description for table...</div>
 
@@ -342,7 +342,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={400}
             />
 
             <TableHeader
@@ -360,7 +360,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={400}
             />
           </>
         ),
@@ -377,7 +377,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={350}
             />
             <div>Description for table...</div>
 
@@ -396,7 +396,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={350}
             />
 
             <TableHeader
@@ -414,7 +414,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={350}
             />
           </>
         ),
@@ -431,7 +431,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={350}
             />
             <div>Description for table...</div>
 
@@ -450,7 +450,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={350}
             />
 
             <TableHeader
@@ -468,7 +468,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={350}
             />
           </>
         ),
@@ -485,7 +485,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={300}
             />
             <div>Description for table...</div>
 
@@ -504,7 +504,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={300}
             />
 
             <TableHeader
@@ -522,7 +522,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={300}
             />
           </>
         ),
@@ -540,7 +540,7 @@ export const DetailedStatsPage = ({
                 ["match", "first_half", "second_half"],
               )}
               overflow="auto"
-              minWidth={500}
+              minWidth={300}
             />
             <div>Description for table...</div>
 
@@ -559,7 +559,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={300}
             />
 
             <TableHeader
@@ -577,7 +577,7 @@ export const DetailedStatsPage = ({
                 "second_half",
               ])}
               overflow="auto"
-              minWidth={500}
+              minWidth={300}
             />
           </>
         ),
