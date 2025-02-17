@@ -33,9 +33,9 @@ export const LeagueDetails = ({ league }: { league: League }) => {
           <div className={styles.headlines}>
             <div>Nation</div>
             <div>Teams</div>
-            <div style={{ marginTop: "8px" }}>Season</div>
-            <div style={{ marginTop: "12px" }}>Matches</div>
-            <div style={{ marginTop: "5px" }}>Progress</div>
+            <div className={styles.season}>Season</div>
+            <div className={styles.matches}>Matches</div>
+            <div className={styles.progr}>Progress</div>
           </div>
           <div className={styles.headlines}>
             <div className="bold">{league.country}</div>

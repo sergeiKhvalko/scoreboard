@@ -31,6 +31,30 @@
       gap: 16px;
     }
   }
+
+  .season {
+    margin-top: 11px;
+
+    @media screen and (min-width: 680px) {
+      margin-top: 8px;
+    }
+  }
+
+  .matches {
+    margin-top: 10px;
+
+    @media screen and (min-width: 480px) and (max-width: 680px) {
+      margin-top: 7px;
+    }
+  }
+
+  .progr {
+    margin-top: 5px;
+
+    @media screen and (min-width: 680px) {
+      margin-top: 3px;
+    }
+  }
 }
 
 .progress {
