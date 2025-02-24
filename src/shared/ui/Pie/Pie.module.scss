@@ -1,10 +1,14 @@
 .pieWrap {
   margin: 0 auto;
   width: 250px;
-  height: 250px;
+  height: 280px;
 
   @media screen and (min-width: 680px) {
     width: 300px;
     height: 300px;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }

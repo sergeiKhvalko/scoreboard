@@ -1,6 +1,5 @@
 import { League } from "@/types/type";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export function getCompletedProgress(totalMatches: number, totalTeams: number) {
   return Math.round(
     (totalMatches / ((totalTeams - 1) * 2 * (totalTeams / 2))) * 100,
@@ -275,10 +274,10 @@ export function getHomeTeamsWinPercentage(league: League) {
   let Draws = 0;
   let homeLoses = 0;
 
-  for (const oneTeam of league.standings) {
-    homeWins += oneTeam.matches.home.match.W;
-    Draws += oneTeam.matches.home.match.D;
-    homeLoses += oneTeam.matches.home.match.L;
+  for (const team of league.standings) {
+    homeWins += team.matches.home.match.W;
+    Draws += team.matches.home.match.D;
+    homeLoses += team.matches.home.match.L;
   }
 
   return [
@@ -293,5 +292,44 @@ export function getBgForOverviewPie(opacity: number) {
     `rgba(75, 192, 192, ${opacity})`,
     `rgba(255, 206, 86, ${opacity})`,
     `rgba(255, 99, 132, ${opacity})`,
+  ];
+}
+
+export function getTotalCornersPercentage(league: League) {
+  let under_9_5 = 0;
+  let under_10_5 = 0;
+  let under_11_5 = 0;
+  let over_9_5 = 0;
+  let over_10_5 = 0;
+  let over_11_5 = 0;
+
+  for (const team of league.standings) {
+    const match = team.statistics.corners.summary.match;
+    under_9_5 += match.corner_under_9_5;
+    under_10_5 += match.matches - match.corner_over_10_5;
+    under_11_5 += match.matches - match.corner_over_11_5;
+    over_9_5 += match.corner_over_9_5;
+    over_10_5 += match.corner_over_10_5;
+    over_11_5 += match.corner_over_11_5;
+  }
+
+  return [
+    Number(((under_9_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_9_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((under_10_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_10_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((under_11_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_11_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+  ];
+}
+
+export function getBgForCornersPie(opacity: number) {
+  return [
+    `rgba(171, 6, 6, ${opacity})`,
+    `rgba(8, 126, 126, ${opacity})`,
+    `rgba(255, 99, 132, ${opacity})`,
+    `rgba(75, 192, 192, ${opacity})`,
+    `rgba(255, 12, 12, ${opacity})`,
+    `rgba(29, 247, 94, ${opacity})`,
   ];
 }

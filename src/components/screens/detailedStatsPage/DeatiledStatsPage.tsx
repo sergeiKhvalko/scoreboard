@@ -13,6 +13,10 @@ import {
   TableVariantsProps,
 } from "@/shared/ui/StandingTable/StandingTable";
 import { TableHeader } from "@/shared/ui/TableHeader/TableHeader";
+import { HStack } from "@/shared/ui/Stack";
+import PieComponent from "@/shared/ui/Pie/Pie";
+import { getBgForCornersPie, getTotalCornersPercentage } from "@/shared/utils";
+import styles from "./DetailedStatsPage.module.scss";
 
 export const DetailedStatsPage = ({
   league,
@@ -93,6 +97,25 @@ export const DetailedStatsPage = ({
     [],
   );
 
+  const labelsCornersTotal = [
+    "Total Under 9.5",
+    "Total Over 9.5",
+    "Total Under 10.5",
+    "Total Over 10.5",
+    "Total Under 11.5",
+    "Total Over 11.5",
+  ];
+  const datasetsCornersTotal = [
+    {
+      label: "%",
+      data: getTotalCornersPercentage(league),
+      backgroundColor: getBgForCornersPie(0.5),
+      hoverBackgroundColor: getBgForCornersPie(0.6),
+      borderColor: getBgForCornersPie(1),
+      borderWidth: 1,
+    },
+  ];
+
   const allStats = useMemo(
     () => [
       {
@@ -100,6 +123,25 @@ export const DetailedStatsPage = ({
         image: "/corners.png",
         content: (
           <>
+            <HStack
+              wrap="wrap"
+              align="center"
+              justify="center"
+              gap="24"
+              className="mb-20"
+            >
+              <PieComponent
+                labels={labelsCornersTotal}
+                datasets={datasetsCornersTotal}
+              />
+              <div>
+                <p className="mb-10">
+                  Click on the buttons to exclude from display
+                </p>
+                <span className={styles.under}></span> <s>Total Under 11.5</s>{" "}
+                <span className={styles.over}></span> <s>Total Over 11.5</s>
+              </div>
+            </HStack>
             <Tabs
               items={generateTables(league, "summary", "corners", [
                 "match",
