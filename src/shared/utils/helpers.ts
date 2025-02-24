@@ -323,7 +323,7 @@ export function getTotalCornersPercentage(league: League) {
   ];
 }
 
-export function getBgForCornersPie(opacity: number) {
+export function getBgForStatsPie(opacity: number) {
   return [
     `rgba(171, 6, 6, ${opacity})`,
     `rgba(8, 126, 126, ${opacity})`,
@@ -331,5 +331,96 @@ export function getBgForCornersPie(opacity: number) {
     `rgba(75, 192, 192, ${opacity})`,
     `rgba(255, 12, 12, ${opacity})`,
     `rgba(29, 247, 94, ${opacity})`,
+  ];
+}
+
+export function getTotalYellowPercentage(league: League) {
+  let under_3_5 = 0;
+  let under_4_5 = 0;
+  let under_5_5 = 0;
+  let over_3_5 = 0;
+  let over_4_5 = 0;
+  let over_5_5 = 0;
+
+  for (const team of league.standings) {
+    const match = team.statistics.yellow_cards.summary.match;
+    under_3_5 += match.yellow_under_3_5;
+    under_4_5 += match.matches - match.yellow_over_4_5;
+    under_5_5 += match.matches - match.yellow_over_5_5;
+    over_3_5 += match.yellow_over_3_5;
+    over_4_5 += match.yellow_over_4_5;
+    over_5_5 += match.yellow_over_5_5;
+  }
+
+  return [
+    Number(((under_3_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_3_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((under_4_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_4_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((under_5_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_5_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+  ];
+}
+
+export function getTotalPercentage(league: League) {
+  let under_2_5 = 0;
+  let under_3_5 = 0;
+  let under_4_5 = 0;
+  let over_2_5 = 0;
+  let over_3_5 = 0;
+  let over_4_5 = 0;
+
+  for (const team of league.standings) {
+    const match = team.statistics.total.summary.match;
+    under_2_5 += match.total_under_2_5;
+    under_3_5 += match.matches - match.total_over_3_5;
+    under_4_5 += match.matches - match.total_over_4_5;
+    over_2_5 += match.total_over_2_5;
+    over_3_5 += match.total_over_3_5;
+    over_4_5 += match.total_over_4_5;
+  }
+
+  return [
+    Number(((under_2_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_2_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((under_3_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_3_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((under_4_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((over_4_5 / 2 / league.allMatches.total) * 100).toFixed(2)),
+  ];
+}
+
+export function getBTTSPercentage(league: League) {
+  let yes = 0;
+  let no = 0;
+
+  for (const team of league.standings) {
+    const match = team.statistics.both_score.summary.match;
+    yes += match.bs_yes;
+    no += match.bs_no;
+  }
+
+  return [
+    Number(((no / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((yes / 2 / league.allMatches.total) * 100).toFixed(2)),
+  ];
+}
+
+export function getProductivePercentage(league: League) {
+  let firstOverSecond = 0;
+  let firstEqualSecond = 0;
+  let secondOverFirst = 0;
+
+  for (const team of league.standings) {
+    const match = team.statistics.productive_half.summary.match;
+    firstOverSecond += match.first_over_second;
+    firstEqualSecond += match.first_equal_second;
+    secondOverFirst += match.second_over_first;
+  }
+
+  return [
+    Number(((secondOverFirst / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((firstEqualSecond / 2 / league.allMatches.total) * 100).toFixed(2)),
+    Number(((firstOverSecond / 2 / league.allMatches.total) * 100).toFixed(2)),
   ];
 }

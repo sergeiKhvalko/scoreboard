@@ -15,7 +15,15 @@ import {
 import { TableHeader } from "@/shared/ui/TableHeader/TableHeader";
 import { HStack } from "@/shared/ui/Stack";
 import PieComponent from "@/shared/ui/Pie/Pie";
-import { getBgForCornersPie, getTotalCornersPercentage } from "@/shared/utils";
+import {
+  getBgForOverviewPie,
+  getBgForStatsPie,
+  getBTTSPercentage,
+  getProductivePercentage,
+  getTotalCornersPercentage,
+  getTotalPercentage,
+  getTotalYellowPercentage,
+} from "@/shared/utils";
 import styles from "./DetailedStatsPage.module.scss";
 
 export const DetailedStatsPage = ({
@@ -109,9 +117,71 @@ export const DetailedStatsPage = ({
     {
       label: "%",
       data: getTotalCornersPercentage(league),
-      backgroundColor: getBgForCornersPie(0.5),
-      hoverBackgroundColor: getBgForCornersPie(0.6),
-      borderColor: getBgForCornersPie(1),
+      backgroundColor: getBgForStatsPie(0.5),
+      hoverBackgroundColor: getBgForStatsPie(0.6),
+      borderColor: getBgForStatsPie(1),
+      borderWidth: 1,
+    },
+  ];
+  const labelsYellowTotal = [
+    "Total Under 3.5",
+    "Total Over 3.5",
+    "Total Under 4.5",
+    "Total Over 4.5",
+    "Total Under 5.5",
+    "Total Over 5.5",
+  ];
+  const datasetsYellowTotal = [
+    {
+      label: "%",
+      data: getTotalYellowPercentage(league),
+      backgroundColor: getBgForStatsPie(0.5),
+      hoverBackgroundColor: getBgForStatsPie(0.6),
+      borderColor: getBgForStatsPie(1),
+      borderWidth: 1,
+    },
+  ];
+  const labelsTotal = [
+    "Total Under 2.5",
+    "Total Over 2.5",
+    "Total Under 3.5",
+    "Total Over 3.5",
+    "Total Under 4.5",
+    "Total Over 4.5",
+  ];
+  const datasetsTotal = [
+    {
+      label: "%",
+      data: getTotalPercentage(league),
+      backgroundColor: getBgForStatsPie(0.5),
+      hoverBackgroundColor: getBgForStatsPie(0.6),
+      borderColor: getBgForStatsPie(1),
+      borderWidth: 1,
+    },
+  ];
+  const labelsBTTS = ["Both Score NO", "Both Score YES"];
+  const datasetsBTTS = [
+    {
+      label: "%",
+      data: getBTTSPercentage(league),
+      backgroundColor: getBgForStatsPie(0.5),
+      hoverBackgroundColor: getBgForStatsPie(0.6),
+      borderColor: getBgForStatsPie(1),
+      borderWidth: 1,
+    },
+  ];
+  const labelsProductive = [
+    "Second Over First",
+    "First Equal Second",
+    "First Over Second",
+  ];
+  const datasetsProductive = [
+    {
+      label: "%",
+      data: getProductivePercentage(league),
+      backgroundColor: getBgForOverviewPie(0.5),
+      hoverBackgroundColor: getBgForOverviewPie(0.6),
+      borderColor: getBgForOverviewPie(1),
       borderWidth: 1,
     },
   ];
@@ -250,6 +320,25 @@ export const DetailedStatsPage = ({
         image: "/yellow_cards.png",
         content: (
           <>
+            <HStack
+              wrap="wrap"
+              align="center"
+              justify="center"
+              gap="24"
+              className="mb-20"
+            >
+              <PieComponent
+                labels={labelsYellowTotal}
+                datasets={datasetsYellowTotal}
+              />
+              <div>
+                <p className="mb-10">
+                  Click on the buttons to exclude from display
+                </p>
+                <span className={styles.under}></span> <s>Total Under 5.5</s>{" "}
+                <span className={styles.over}></span> <s>Total Over 5.5</s>
+              </div>
+            </HStack>
             <Tabs
               items={generateTables(league, "summary", "yellow_cards", [
                 "match",
@@ -358,6 +447,25 @@ export const DetailedStatsPage = ({
         image: "/total.png",
         content: (
           <>
+            <HStack
+              wrap="wrap"
+              align="center"
+              justify="center"
+              gap="24"
+              className="mb-20"
+            >
+              <PieComponent
+                labels={labelsTotal}
+                datasets={datasetsTotal}
+              />
+              <div>
+                <p className="mb-10">
+                  Click on the buttons to exclude from display
+                </p>
+                <span className={styles.under}></span> <s>Total Under 4.5</s>{" "}
+                <span className={styles.over}></span> <s>Total Over 4.5</s>
+              </div>
+            </HStack>
             <Tabs
               items={generateTables(league, "summary", "total", [
                 "match",
@@ -466,6 +574,18 @@ export const DetailedStatsPage = ({
         image: "/both_score.png",
         content: (
           <>
+            <HStack
+              wrap="wrap"
+              align="center"
+              justify="center"
+              gap="24"
+              className="mb-20"
+            >
+              <PieComponent
+                labels={labelsBTTS}
+                datasets={datasetsBTTS}
+              />
+            </HStack>
             <Tabs
               items={generateTables(league, "summary", "both_score", [
                 "match",
@@ -520,6 +640,18 @@ export const DetailedStatsPage = ({
         image: "/productive_half.png",
         content: (
           <>
+            <HStack
+              wrap="wrap"
+              align="center"
+              justify="center"
+              gap="24"
+              className="mb-20"
+            >
+              <PieComponent
+                labels={labelsProductive}
+                datasets={datasetsProductive}
+              />
+            </HStack>
             <Tabs
               items={generateTables(league, "summary", "productive_half", [
                 "match",
