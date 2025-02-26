@@ -25,6 +25,7 @@ import {
   getTotalYellowPercentage,
 } from "@/shared/utils";
 import styles from "./DetailedStatsPage.module.scss";
+import { Fixtures } from "@/components/ui/fixtures";
 
 export const DetailedStatsPage = ({
   league,
@@ -772,7 +773,10 @@ export const DetailedStatsPage = ({
 
       <div className={comCls.wrapper}>
         <LeagueDetails league={league} />
-        <div className={comCls.fixtures}>fixtures</div>
+        <Fixtures
+          leagueId={leagueId}
+          season={season}
+        />
       </div>
 
       <TableHeader

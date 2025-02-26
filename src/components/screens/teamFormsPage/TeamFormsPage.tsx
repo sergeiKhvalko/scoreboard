@@ -5,6 +5,7 @@ import { useMemo } from "react";
 // import styles from "./TeamFormsPage.module.scss";
 import comCls from "../common.module.scss";
 import { LeagueProps } from "../leaguePage/LeaguePage";
+import { Fixtures } from "@/components/ui/fixtures";
 
 export const TeamFormsPage = ({ league, leagueId, season }: LeagueProps) => {
   const breadcrumbs = useMemo(
@@ -51,7 +52,10 @@ export const TeamFormsPage = ({ league, leagueId, season }: LeagueProps) => {
 
       <div className={comCls.wrapper}>
         <LeagueDetails league={league} />
-        <div className={comCls.fixtures}>fixtures</div>
+        <Fixtures
+          leagueId={leagueId}
+          season={season}
+        />
       </div>
     </div>
   );
