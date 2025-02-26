@@ -1,4 +1,4 @@
-import { RegisterForm } from "@/features/auth/components/registerForm/RegisterForm";
+// import { RegisterForm } from "@/features/auth/components/registerForm/RegisterForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +6,6 @@ export const metadata: Metadata = {
 };
 
 export default function RegisterPage() {
-  return <RegisterForm />;
+  // return <RegisterForm />;
+  return <div>register</div>;
 }
