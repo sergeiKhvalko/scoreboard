@@ -1,0 +1,71 @@
+.fixtures {
+  max-height: 315px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.matchesTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  thead tr td {
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  tbody tr {
+    border: none;
+
+    &:nth-child(odd) {
+      background-color: var(--tr-bg);
+    }
+  }
+
+  tbody tr {
+
+    &:hover {
+      background-color: var(--tr-hover);
+    }
+
+    td {
+      padding: 5px 10px;
+
+      @media screen and (min-width: 680px) {
+        padding: 5px 30px;
+      }
+    }
+  }
+}
+
+thead .teamHome,
+thead .teamAway {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.teamHome,
+.teamAway {
+  width: 25%;
+}
+
+.teamHome {
+  text-align: right;
+}
+
+.teamHomeForm,
+.teamAwayForm {
+  width: 12.5%;
+  text-align: center;
+}
+
+.status {
+  width: 25%;
+  text-align: center;
+}
+
+.teamAway {
+  text-align: left;
+}

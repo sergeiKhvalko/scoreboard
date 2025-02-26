@@ -18,6 +18,7 @@ import {
   getHomeTeamsWinPercentage,
 } from "@/shared/utils";
 import { HStack } from "@/shared/ui/Stack";
+import { Fixtures } from "@/components/ui/fixtures";
 
 export interface LeagueProps {
   league: League;
@@ -210,7 +211,10 @@ export const LeaguePage = ({ league, leagueId, season }: LeagueProps) => {
 
       <div className={comCls.wrapper}>
         <LeagueDetails league={league} />
-        <div className={comCls.fixtures}>fixtures</div>
+        <Fixtures
+          leagueId={leagueId}
+          season={season}
+        />
       </div>
 
       <HStack

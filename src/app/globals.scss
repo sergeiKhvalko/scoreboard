@@ -130,3 +130,15 @@ li {
 .border-bottom {
   border-bottom: 1px solid var(--border-color);
 }
+
+.d-none {
+  display: none;
+}
+
+.xs-hidden {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
