@@ -1,4 +1,5 @@
-import { AllLeaguesPage } from "@/components/screens/allLeaguesPage/AllLeaguesPage";
+import { AllLeagues } from "@/components/screens/allLeagues";
+import { fetchLeaguesData } from "@/services/fetchLeaguesData";
 
 export default async function Page({
   searchParams,
@@ -9,5 +10,12 @@ export default async function Page({
 
   if (typeof seasonId !== "string") return null;
 
-  return <AllLeaguesPage seasonId={seasonId} />;
+  try {
+    const responses = await fetchLeaguesData(seasonId);
+    const allLeagues = responses.map((res) => res["response"][0]["league"]);
+
+    return <AllLeagues allLeagues={allLeagues} />;
+  } catch (e) {
+    return <div>Failed to load user data. Please reload page.</div>;
+  }
 }

@@ -10,6 +10,8 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { NotificationButton } from "@/features/notificationButton/NotificationButton";
 import { AppLink } from "@/shared/ui/AppLink";
 import { AvatarDropdown } from "@/features/avatarDropdown/AvatarDropdown";
+import { SearchBarForm } from "@/components/ui/searchBarForm";
+import { fetchTeams } from "@/services/fetchTeams";
 
 export interface NavProps {
   title: string;
@@ -20,9 +22,10 @@ export interface NavProps {
   leagues?: Array<Record<string, string>>;
 }
 
-const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
+const Navbar = memo(async ({ pages }: { pages: NavProps[] }) => {
   // const authData = useSelector(getUserAuthData)
   const authData = true;
+  const teamsData = await fetchTeams();
 
   return (
     <header className={styles.navbar}>
@@ -30,8 +33,14 @@ const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
         href="/"
         className={styles.logo}
       >
-        SCOREBOARD<span className={styles.red24}>24</span>
+        <span className={styles.red24}>24</span>
+        {/* <strong>SCOREBOARD<span className={styles.red24}>24</span></strong> */}
       </Link>
+
+      <SearchBarForm
+        teamsData={teamsData}
+        className="ml-20"
+      />
 
       <HStack
         gap="24"
@@ -117,7 +126,7 @@ const Navbar = memo(({ pages }: { pages: NavProps[] }) => {
           gap="16"
           className={styles.actions}
         >
-          <NotificationButton />
+          {/* <NotificationButton /> */}
           <AvatarDropdown />
         </HStack>
       ) : (

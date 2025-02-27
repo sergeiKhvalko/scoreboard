@@ -13,7 +13,8 @@ export default async function Page({
   }
 
   const league = await standingService.getStandings(leagueId, seasonId);
-  if (!league) return null;
+  if (!league)
+    return <div>Failed to load leagues data. Please reload page.</div>;
 
   return (
     <DetailedStatsPage

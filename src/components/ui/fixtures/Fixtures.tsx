@@ -59,8 +59,6 @@ export const Fixtures = async ({ leagueId, season }: FixtureProps) => {
       moment(a.fixture.date).isBefore(moment(b.fixture.date)) ? 1 : -1,
     );
 
-  console.log(filteredFixtures);
-
   return (
     <div className={styles.fixtures}>
       <table className={styles.matchesTable}>
